@@ -17,12 +17,22 @@
   };
 
   var FAQ = {
-    pricing: 'We offer Starter ($49/mo), Standard ($99/mo), and Pro ($199/mo), each with a one-time setup fee. Most restaurants start with Standard because it includes booking + lead capture.',
-    setup: 'Setup is usually done in about 2 hours and can go live in 48 hours. We handle installation and training for your specific restaurant.',
-    integrations: 'We can support booking flows, website embeds, and lead capture workflows. We can also connect to your reservation tooling based on your plan.',
-    support: 'You get ongoing support by email, plus priority support on higher tiers. We also provide optimization and reporting in advanced plans.',
-    results: 'Most restaurants use it to answer repetitive questions, reduce missed inquiries after hours, and capture booking/lead requests automatically.',
-    contact: 'You can reach us at Wilfried.lefebvre@gmail.com or +1 (424) 206-8097.'
+    offer:
+      'Pro Fast AI is an AI receptionist for restaurants. It answers customers 24/7, books reservations, and captures leads automatically so you do not miss after-hours revenue.',
+    stats:
+      'Current offer highlights: 24/7 answering, $0 to get started, setup in about 2 hours, and 80%+ of common questions handled automatically.',
+    setup:
+      'How it works: (1) you share menu/hours/FAQ/booking policy, (2) we build your custom bot, (3) it is embedded on your site, (4) it handles customer questions while you sleep. Typical go-live is within 48 hours.',
+    pricing:
+      'Pricing: Starter is $49/mo + $149 setup. Standard is $99/mo + $249 setup (most popular, includes reservation integration and lead capture). Pro is $199/mo + $399 setup (includes monthly optimization and performance reporting).',
+    trial:
+      'You get 30 days free with no credit card required. If you do not love it, you owe nothing.',
+    support:
+      'Support by plan: email support on Starter, priority email support on Standard, and priority phone + email support on Pro.',
+    contact:
+      'Contact Pro Fast AI: Wilfried.lefebvre@gmail.com or +1 (424) 206-8097. Service area: Orange County, CA.',
+    testimonials:
+      'Client examples on the page report fewer missed after-hours calls, fewer repetitive staff interruptions, and new reservations captured while off-shift.'
   };
 
   function addTranscript(role, text) {
@@ -151,6 +161,14 @@
       return;
     }
 
+    if (lower.includes('what is profast') || lower.includes('what do you do') || lower.includes('ai receptionist')) {
+      addMessage(messagesEl, 'bot', FAQ.offer);
+      return;
+    }
+    if (lower.includes('stat') || lower.includes('24/7') || lower.includes('2hr') || lower.includes('80%')) {
+      addMessage(messagesEl, 'bot', FAQ.stats);
+      return;
+    }
     if (lower.includes('price') || lower.includes('cost') || lower.includes('plan')) {
       addMessage(messagesEl, 'bot', FAQ.pricing);
       return;
@@ -160,7 +178,11 @@
       return;
     }
     if (lower.includes('integrat') || lower.includes('calendar') || lower.includes('booking')) {
-      addMessage(messagesEl, 'bot', FAQ.integrations);
+      addMessage(messagesEl, 'bot', FAQ.setup);
+      return;
+    }
+    if (lower.includes('free trial') || lower.includes('no credit card') || lower.includes('trial')) {
+      addMessage(messagesEl, 'bot', FAQ.trial);
       return;
     }
     if (lower.includes('support') || lower.includes('help')) {
@@ -168,7 +190,11 @@
       return;
     }
     if (lower.includes('result') || lower.includes('roi') || lower.includes('benefit')) {
-      addMessage(messagesEl, 'bot', FAQ.results);
+      addMessage(messagesEl, 'bot', FAQ.testimonials);
+      return;
+    }
+    if (lower.includes('testimonial') || lower.includes('client') || lower.includes('review')) {
+      addMessage(messagesEl, 'bot', FAQ.testimonials);
       return;
     }
     if (lower.includes('email') || lower.includes('phone') || lower.includes('contact')) {
@@ -179,7 +205,7 @@
     addMessage(
       messagesEl,
       'bot',
-      'I can help with pricing, setup timeline, integrations, and expected results. If you want, I can also collect your info now and schedule a follow-up.'
+      'I can answer anything from the Pro Fast AI page: offer, how it works, pricing, trial terms, support, contact, and proof points. If you want, I can collect your info now and schedule a follow-up.'
     );
   }
 
@@ -312,10 +338,10 @@
       </div>
       <div id="pfai-messages" class="pfai-messages"></div>
       <div class="pfai-quick">
+        <button class="pfai-chip" type="button">What is Pro Fast AI?</button>
+        <button class="pfai-chip" type="button">How it works</button>
         <button class="pfai-chip" type="button">Pricing</button>
-        <button class="pfai-chip" type="button">Setup Time</button>
-        <button class="pfai-chip" type="button">Integrations</button>
-        <button class="pfai-chip" type="button">Start Free Trial</button>
+        <button class="pfai-chip" type="button">30-day free trial</button>
       </div>
       <form id="pfai-form" class="pfai-input-row">
         <input id="pfai-input" placeholder="Ask anything or type 'start free trial'" autocomplete="off" />
@@ -342,7 +368,7 @@
       addMessage(
         messagesEl,
         'bot',
-        'Welcome. I help restaurant owners evaluate Pro Fast AI and get started quickly. Ask about pricing, setup, or type "start free trial".'
+        'Welcome. I am the Pro Fast AI assistant. I can answer questions from this page about how it works, pricing, free trial terms, support, and contact. Type "start free trial" any time to begin lead capture.'
       );
     }
     inputEl.focus();
