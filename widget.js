@@ -7,17 +7,40 @@
   const styles = `
     #cdlc-widget * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'DM Sans', sans-serif; }
     #cdlc-bubble {
-      position: fixed; bottom: 28px; right: 28px; z-index: 99999;
-      width: 60px; height: 60px; border-radius: 50%;
+      position: fixed; bottom: 120px; right: 22px; z-index: 99999;
+      width: 68px; height: 68px; border-radius: 50%;
       background: #8b1a2b; box-shadow: 0 4px 20px rgba(139, 26, 43, 0.45);
       cursor: pointer; border: none; display: flex; align-items: center; justify-content: center;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      animation: cdlc-attention 2.2s ease-in-out infinite;
+    }
+    @keyframes cdlc-attention {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
     #cdlc-bubble:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(139, 26, 43, 0.55); }
     #cdlc-bubble svg { width: 26px; height: 26px; fill: #faf3e0; }
     #cdlc-bubble .cdlc-close { display: none; font-size: 22px; color: #faf3e0; line-height: 1; }
     #cdlc-bubble.open .cdlc-open { display: none; }
     #cdlc-bubble.open .cdlc-close { display: block; }
+    #cdlc-label {
+      position: fixed;
+      right: 102px;
+      bottom: 137px;
+      z-index: 99998;
+      background: #8b1a2b;
+      color: #faf3e0;
+      border: 1px solid rgba(201, 168, 76, 0.6);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+      pointer-events: none;
+      animation: cdlc-attention 2.2s ease-in-out infinite;
+    }
+    #cdlc-bubble.open + #cdlc-label { display: none; }
 
     #cdlc-window {
       position: fixed; bottom: 100px; right: 28px; z-index: 99998;
@@ -68,7 +91,8 @@
     #cdlc-footer { text-align: center; padding: 0 0 10px; font-size: 10px; color: #999; }
     @media (max-width: 480px) {
       #cdlc-window { width: calc(100vw - 20px); right: 10px; bottom: 90px; height: 70vh; }
-      #cdlc-bubble { bottom: 18px; right: 18px; }
+      #cdlc-bubble { bottom: 94px; right: 14px; width: 62px; height: 62px; }
+      #cdlc-label { right: 84px; bottom: 109px; padding: 8px 12px; font-size: 12px; }
     }
   `;
 
@@ -98,6 +122,7 @@
         <svg class="cdlc-open" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
         <span class="cdlc-close">x</span>
       </button>
+      <div id="cdlc-label">Chat with us</div>
     </div>
   `;
 
