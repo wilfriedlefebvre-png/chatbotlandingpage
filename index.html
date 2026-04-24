@@ -596,32 +596,11 @@
     <div class="section-label">Live Demo</div>
     <h2>Try it yourself —<br /><em>right now</em></h2>
     <div class="demo-wrap">
-      <div class="chatbot-panel">
-        <div class="chatbot-header">
-          <div>
-            <div class="chatbot-title">
-              <span class="chatbot-status"></span>
-              Pro Fast AI Receptionist
-            </div>
-            <div class="chatbot-subtitle">Ask about hours, menu, reservations, parking, or contact</div>
-          </div>
-          <div class="chatbot-tools">
-            <button id="downloadChatBtn" class="chatbot-tool-btn" type="button">Download Chat</button>
-          </div>
-        </div>
-        <div id="chatMessages" class="chatbot-messages"></div>
-        <div class="chatbot-quick">
-          <button class="quick-btn" type="button" data-question="What are your hours?">Hours</button>
-          <button class="quick-btn" type="button" data-question="Where are you located?">Location</button>
-          <button class="quick-btn" type="button" data-question="Can I book a table for tonight?">Reservations</button>
-          <button class="quick-btn" type="button" data-question="Do you have parking?">Parking</button>
-          <button class="quick-btn" type="button" data-question="How can I contact you?">Contact</button>
-          <button class="quick-btn" type="button" data-question="I want to start a free trial.">Free Trial</button>
-        </div>
-        <form id="chatForm" class="chatbot-form">
-          <input id="chatInput" class="chatbot-input" type="text" placeholder="Type your question..." autocomplete="off" />
-          <button class="chatbot-send" type="submit">Send</button>
-        </form>
+      <div class="demo-placeholder">
+        <div class="chat-icon">🥞</div>
+        <h3>Clémentine chatbot is now active</h3>
+        <p>Click the floating chat bubble at the bottom-right to test the conversation flow.</p>
+        <p class="demo-note">No Voiceflow required.</p>
       </div>
     </div>
   </div>
@@ -765,6 +744,10 @@
     var quickButtons = document.querySelectorAll('.quick-btn');
     var downloadBtn = document.getElementById('downloadChatBtn');
     var transcript = [];
+
+    if (!messagesEl || !formEl || !inputEl || !downloadBtn) {
+      return;
+    }
 
     var botConfig = {
       name: 'Pro Fast AI Receptionist',
@@ -972,6 +955,7 @@
     });
   })();
 </script>
+<script src="./widget.js"></script>
 
 </body>
 </html>
