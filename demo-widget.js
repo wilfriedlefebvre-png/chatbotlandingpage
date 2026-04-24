@@ -1,6 +1,7 @@
 (function () {
   var host = document.getElementById('demoWidgetHost');
   if (!host) return;
+  var placeholder = document.getElementById('demoPlaceholder');
 
   var styles = document.createElement('style');
   styles.textContent = `
@@ -25,9 +26,9 @@
     #pf-demo-panel {
       position: absolute;
       right: 0;
-      bottom: 52px;
-      width: min(360px, calc(100vw - 56px));
-      height: 430px;
+      bottom: 56px;
+      width: min(430px, calc(100vw - 64px));
+      height: 450px;
       background: #141412;
       border: 1px solid #3a382f;
       border-radius: 12px;
@@ -97,6 +98,22 @@
       padding: 0 12px;
       cursor: pointer;
     }
+    @media (max-width: 768px) {
+      #pf-demo-widget {
+        right: 10px;
+        bottom: 10px;
+      }
+      #pf-demo-panel {
+        right: 0;
+        bottom: 56px;
+        width: min(340px, calc(100vw - 44px));
+        height: 390px;
+      }
+      #pf-demo-bubble {
+        font-size: 12px;
+        padding: 9px 12px;
+      }
+    }
   `;
   document.head.appendChild(styles);
 
@@ -140,12 +157,14 @@
   }
 
   bubble.addEventListener('click', function () {
-    panel.classList.toggle('open');
-    if (panel.classList.contains('open') && !greeted) {
+    var isOpen = panel.classList.toggle('open');
+    bubble.textContent = isOpen ? 'Close Demo Chat' : 'Open Live Demo Chat';
+    if (placeholder) placeholder.style.display = isOpen ? 'none' : 'block';
+    if (isOpen && !greeted) {
       greeted = true;
       add('bot', 'Welcome to the live demo. I am a demo-only chatbot for this section.');
     }
-    if (panel.classList.contains('open')) input.focus();
+    if (isOpen) input.focus();
   });
 
   form.addEventListener('submit', function (e) {

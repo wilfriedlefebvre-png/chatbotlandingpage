@@ -208,8 +208,8 @@
     .demo-wrap {
       margin-top: 48px;
       background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 16px; overflow: hidden;
-      min-height: 420px;
+      border-radius: 16px;
+      min-height: 520px;
       display: flex; align-items: center; justify-content: center;
       position: relative;
     }
@@ -231,7 +231,8 @@
     .demo-widget-host {
       position: absolute;
       inset: 0;
-      pointer-events: none;
+      pointer-events: auto;
+      z-index: 2;
     }
     .chatbot-panel {
       width: min(820px, 100%);
@@ -601,7 +602,7 @@
     <div class="section-label">Live Demo</div>
     <h2>Try it yourself —<br /><em>right now</em></h2>
     <div class="demo-wrap">
-      <div class="demo-placeholder">
+      <div id="demoPlaceholder" class="demo-placeholder">
         <div class="chat-icon">🥞</div>
         <h3>Live demo chatbot</h3>
         <p>Use the demo-only chat bubble in this section to test the live conversation.</p>
