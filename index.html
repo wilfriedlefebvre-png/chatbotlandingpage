@@ -228,6 +228,11 @@
       margin-top: 12px; font-size: 0.8rem; color: var(--gold);
       font-style: italic;
     }
+    .demo-widget-host {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
     .chatbot-panel {
       width: min(820px, 100%);
       height: 560px;
@@ -598,10 +603,11 @@
     <div class="demo-wrap">
       <div class="demo-placeholder">
         <div class="chat-icon">🥞</div>
-        <h3>Clémentine chatbot is now active</h3>
-        <p>Click the floating chat bubble at the bottom-right to test the conversation flow.</p>
-        <p class="demo-note">No Voiceflow required.</p>
+        <h3>Live demo chatbot</h3>
+        <p>Use the demo-only chat bubble in this section to test the live conversation.</p>
+        <p class="demo-note">This demo bubble is separate from your page chatbot.</p>
       </div>
+      <div id="demoWidgetHost" class="demo-widget-host"></div>
     </div>
   </div>
 </section>
@@ -955,7 +961,7 @@
     });
   })();
 </script>
-<script src="./widget.js"></script>
+<script src="./demo-widget.js"></script>
 
 </body>
 </html>
