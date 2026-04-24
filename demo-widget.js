@@ -166,4 +166,13 @@
   qrBtns.forEach(function (btn) {
     btn.addEventListener('click', function () { sendMessage(btn.textContent || ''); });
   });
+
+  // Keep the demo chat visible by default so visitors always see it.
+  panel.classList.add('open');
+  bubble.textContent = 'Close Demo Chat';
+  if (placeholder) placeholder.style.display = 'none';
+  if (!greeted) {
+    greeted = true;
+    addMessage('bot', WELCOME_MSG);
+  }
 })();
