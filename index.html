@@ -228,6 +228,148 @@
       margin-top: 12px; font-size: 0.8rem; color: var(--gold);
       font-style: italic;
     }
+    .chatbot-panel {
+      width: min(820px, 100%);
+      height: 560px;
+      background: #141412;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chatbot-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      background: #171714;
+    }
+    .chatbot-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .chatbot-status {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #59d972;
+      box-shadow: 0 0 10px rgba(89, 217, 114, 0.75);
+    }
+    .chatbot-subtitle {
+      font-size: 0.75rem;
+      color: var(--gray);
+    }
+    .chatbot-tools {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .chatbot-tool-btn {
+      border: 1px solid #3a382f;
+      background: #1b1b18;
+      color: var(--white);
+      border-radius: 8px;
+      font-size: 0.75rem;
+      padding: 6px 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .chatbot-tool-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .chat-row {
+      display: flex;
+    }
+    .chat-row.user {
+      justify-content: flex-end;
+    }
+    .bubble {
+      max-width: 84%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+    .bubble.bot {
+      background: #22221d;
+      border: 1px solid #35352d;
+      color: var(--white);
+    }
+    .bubble.user {
+      background: var(--gold);
+      color: #0a0a08;
+      font-weight: 500;
+    }
+    .chatbot-quick {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0 18px 12px;
+    }
+    .quick-btn {
+      border: 1px solid #3a382f;
+      background: #1b1b18;
+      color: var(--white);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      padding: 7px 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .quick-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .chatbot-form {
+      border-top: 1px solid var(--border);
+      padding: 12px;
+      display: flex;
+      gap: 10px;
+      background: #171714;
+    }
+    .chatbot-input {
+      flex: 1;
+      background: #10100e;
+      border: 1px solid #34342e;
+      border-radius: 9px;
+      padding: 11px 12px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .chatbot-input:focus {
+      border-color: var(--gold);
+    }
+    .chatbot-send {
+      border: none;
+      border-radius: 9px;
+      background: var(--gold);
+      color: #0a0a08;
+      font-weight: 700;
+      padding: 0 16px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .chatbot-send:hover {
+      background: var(--gold-light);
+    }
 
     /* PRICING */
     .pricing-grid {
@@ -331,6 +473,8 @@
       .hero-stats { gap: 28px; }
       .steps::before { display: none; }
       footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+      .chatbot-panel { height: 520px; }
+      .bubble { max-width: 92%; }
     }
   </style>
 </head>
@@ -452,19 +596,32 @@
     <div class="section-label">Live Demo</div>
     <h2>Try it yourself —<br /><em>right now</em></h2>
     <div class="demo-wrap">
-      <div class="demo-placeholder">
-        <div class="chat-icon">💬</div>
-        <h3>Try the live chatbot demo</h3>
-        <p>Click below to launch the full Voiceflow demo in a new tab.</p>
-        <a
-          href="https://creator.voiceflow.com/share/69e869d8dc8c7f958d1d222b/development"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-primary"
-          style="margin-top: 20px; display: inline-block;"
-        >
-          Launch Live Demo
-        </a>
+      <div class="chatbot-panel">
+        <div class="chatbot-header">
+          <div>
+            <div class="chatbot-title">
+              <span class="chatbot-status"></span>
+              Pro Fast AI Receptionist
+            </div>
+            <div class="chatbot-subtitle">Ask about hours, menu, reservations, parking, or contact</div>
+          </div>
+          <div class="chatbot-tools">
+            <button id="downloadChatBtn" class="chatbot-tool-btn" type="button">Download Chat</button>
+          </div>
+        </div>
+        <div id="chatMessages" class="chatbot-messages"></div>
+        <div class="chatbot-quick">
+          <button class="quick-btn" type="button" data-question="What are your hours?">Hours</button>
+          <button class="quick-btn" type="button" data-question="Where are you located?">Location</button>
+          <button class="quick-btn" type="button" data-question="Can I book a table for tonight?">Reservations</button>
+          <button class="quick-btn" type="button" data-question="Do you have parking?">Parking</button>
+          <button class="quick-btn" type="button" data-question="How can I contact you?">Contact</button>
+          <button class="quick-btn" type="button" data-question="I want to start a free trial.">Free Trial</button>
+        </div>
+        <form id="chatForm" class="chatbot-form">
+          <input id="chatInput" class="chatbot-input" type="text" placeholder="Type your question..." autocomplete="off" />
+          <button class="chatbot-send" type="submit">Send</button>
+        </form>
       </div>
     </div>
   </div>
@@ -599,6 +756,222 @@
     <a href="mailto:Wilfried.lefebvre@gmail.com">Email</a>
   </div>
 </footer>
+
+<script>
+  (function () {
+    var messagesEl = document.getElementById('chatMessages');
+    var formEl = document.getElementById('chatForm');
+    var inputEl = document.getElementById('chatInput');
+    var quickButtons = document.querySelectorAll('.quick-btn');
+    var downloadBtn = document.getElementById('downloadChatBtn');
+    var transcript = [];
+
+    var botConfig = {
+      name: 'Pro Fast AI Receptionist',
+      hours: 'Mon-Thu: 11:00 AM - 10:00 PM, Fri-Sat: 11:00 AM - 11:00 PM, Sun: 12:00 PM - 9:00 PM.',
+      location: 'We serve Orange County restaurants. For bookings, contact Wilfried directly by email or phone.',
+      phone: '+1 (424) 206-8097',
+      email: 'Wilfried.lefebvre@gmail.com',
+      booking: 'For reservation requests, please share your name, date, time, and party size. We can confirm quickly.',
+      parking: 'Yes, parking information can be provided by the restaurant. Most clients include nearby lot + street parking details.',
+      menu: 'Menu, dietary options, and popular dishes can all be answered instantly once your restaurant info is added.'
+    };
+    var flowState = {
+      mode: 'normal',
+      lead: { name: '', email: '', phone: '' },
+      reservation: { date: '', time: '', partySize: '', name: '', phone: '', notes: '' }
+    };
+
+    function timestamp() {
+      return new Date().toLocaleString();
+    }
+
+    function addMessage(role, text) {
+      var row = document.createElement('div');
+      row.className = 'chat-row ' + role;
+
+      var bubble = document.createElement('div');
+      bubble.className = 'bubble ' + role;
+      bubble.textContent = text;
+
+      row.appendChild(bubble);
+      messagesEl.appendChild(row);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      transcript.push('[' + timestamp() + '] ' + (role === 'bot' ? 'Bot' : 'Visitor') + ': ' + text);
+    }
+
+    function isValidEmail(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
+    function toDigits(value) {
+      return (value || '').replace(/\D/g, '');
+    }
+
+    function isReservationIntent(lower) {
+      return lower.includes('book') || lower.includes('reservation') || lower.includes('table');
+    }
+
+    function isLeadIntent(lower) {
+      return lower.includes('free trial') || lower.includes('start') || lower.includes('get started') || lower.includes('sign up');
+    }
+
+    function startLeadFlow() {
+      flowState.mode = 'lead_name';
+      flowState.lead = { name: '', email: '', phone: '' };
+      return 'Great. Let\'s get your free trial started.\nWhat is your full name?';
+    }
+
+    function startReservationFlow() {
+      flowState.mode = 'res_date';
+      flowState.reservation = { date: '', time: '', partySize: '', name: '', phone: '', notes: '' };
+      return 'Absolutely. I can help with that.\nWhat date would you like to book? (Example: Friday, May 3)';
+    }
+
+    function handleLeadFlow(message) {
+      var value = message.trim();
+      if (flowState.mode === 'lead_name') {
+        flowState.lead.name = value;
+        flowState.mode = 'lead_email';
+        return 'Thanks, ' + value + '. What is your best email address?';
+      }
+      if (flowState.mode === 'lead_email') {
+        if (!isValidEmail(value)) return 'That email looks invalid. Please enter a valid email address.';
+        flowState.lead.email = value;
+        flowState.mode = 'lead_phone';
+        return 'Perfect. What is your phone number?';
+      }
+      if (flowState.mode === 'lead_phone') {
+        if (toDigits(value).length < 10) return 'Please enter a valid phone number with at least 10 digits.';
+        flowState.lead.phone = value;
+        flowState.mode = 'normal';
+        return 'Done. You are on the list.\nLead captured:\n- Name: ' + flowState.lead.name + '\n- Email: ' + flowState.lead.email + '\n- Phone: ' + flowState.lead.phone + '\n\nWilfried will reach out shortly to launch your 30-day trial.';
+      }
+      return null;
+    }
+
+    function handleReservationFlow(message) {
+      var value = message.trim();
+      if (flowState.mode === 'res_date') {
+        flowState.reservation.date = value;
+        flowState.mode = 'res_time';
+        return 'Great. What time should I request?';
+      }
+      if (flowState.mode === 'res_time') {
+        flowState.reservation.time = value;
+        flowState.mode = 'res_party';
+        return 'How many guests will be in your party?';
+      }
+      if (flowState.mode === 'res_party') {
+        if (!/^\d+$/.test(value)) return 'Please enter party size as a number (example: 4).';
+        flowState.reservation.partySize = value;
+        flowState.mode = 'res_name';
+        return 'Got it. What name should I put on the reservation?';
+      }
+      if (flowState.mode === 'res_name') {
+        flowState.reservation.name = value;
+        flowState.mode = 'res_phone';
+        return 'Please share a phone number for confirmation.';
+      }
+      if (flowState.mode === 'res_phone') {
+        if (toDigits(value).length < 10) return 'Please enter a valid phone number with at least 10 digits.';
+        flowState.reservation.phone = value;
+        flowState.mode = 'res_notes';
+        return 'Any notes (high chair, patio seating, allergies)? Type "none" if no notes.';
+      }
+      if (flowState.mode === 'res_notes') {
+        flowState.reservation.notes = value;
+        flowState.mode = 'normal';
+        return 'Reservation request captured:\n- Date: ' + flowState.reservation.date + '\n- Time: ' + flowState.reservation.time + '\n- Party size: ' + flowState.reservation.partySize + '\n- Name: ' + flowState.reservation.name + '\n- Phone: ' + flowState.reservation.phone + '\n- Notes: ' + flowState.reservation.notes + '\n\nThanks. We will confirm your table shortly.';
+      }
+      return null;
+    }
+
+    function getBotReply(message) {
+      var lower = message.toLowerCase();
+
+      if (flowState.mode.indexOf('lead_') === 0) {
+        return handleLeadFlow(message);
+      }
+      if (flowState.mode.indexOf('res_') === 0) {
+        return handleReservationFlow(message);
+      }
+
+      if (isLeadIntent(lower)) {
+        return startLeadFlow();
+      }
+      if (isReservationIntent(lower)) {
+        return startReservationFlow();
+      }
+      if (lower.includes('hour') || lower.includes('open') || lower.includes('close')) {
+        return 'Our current hours are: ' + botConfig.hours;
+      }
+      if (lower.includes('where') || lower.includes('location') || lower.includes('address')) {
+        return botConfig.location;
+      }
+      if (lower.includes('parking')) {
+        return botConfig.parking;
+      }
+      if (lower.includes('menu') || lower.includes('vegan') || lower.includes('gluten')) {
+        return botConfig.menu;
+      }
+      if (lower.includes('phone') || lower.includes('call') || lower.includes('contact') || lower.includes('email')) {
+        return 'You can reach us at ' + botConfig.phone + ' or ' + botConfig.email + '.';
+      }
+      if (lower.includes('price') || lower.includes('cost')) {
+        return 'Plans start at $49/month + setup. Most restaurants choose Standard at $99/month.';
+      }
+      if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey')) {
+        return 'Hi. I can help with hours, reservations, menu questions, parking, and contact info.';
+      }
+
+      return 'Thanks for your message. I can help with hours, location, reservations, parking, menu details, and contact. What would you like to know?';
+    }
+
+    function handleQuestion(question) {
+      if (!question || !question.trim()) return;
+
+      addMessage('user', question.trim());
+
+      window.setTimeout(function () {
+        addMessage('bot', getBotReply(question));
+      }, 350);
+    }
+
+    addMessage('bot', 'Welcome. I am your AI receptionist. Ask me a question about hours, reservations, menu, parking, or contact.');
+
+    formEl.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var value = inputEl.value;
+      inputEl.value = '';
+      handleQuestion(value);
+    });
+
+    quickButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        handleQuestion(button.getAttribute('data-question') || '');
+      });
+    });
+
+    downloadBtn.addEventListener('click', function () {
+      var content = [
+        'Pro Fast AI Chat Transcript',
+        'Generated: ' + timestamp(),
+        '',
+        transcript.join('\n')
+      ].join('\n');
+      var blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      var fileUrl = URL.createObjectURL(blob);
+      var link = document.createElement('a');
+      link.href = fileUrl;
+      link.download = 'chat-transcript.txt';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(fileUrl);
+    });
+  })();
+</script>
 
 </body>
 </html>
