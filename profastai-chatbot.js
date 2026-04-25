@@ -586,8 +586,8 @@
     }
     #pfai-window {
       display: none;
-      width: min(390px, calc(100vw - 24px));
-      height: 560px;
+      width: min(340px, calc(100vw - 24px));
+      height: 460px;
       background: #111110;
       border: 1px solid #2a2a24;
       border-radius: 14px;
@@ -682,9 +682,9 @@
       /* Short fixed cap + dynamic viewport so the panel is not most of the screen */
       #pfai-window {
         width: min(100%, calc(100vw - 20px));
-        max-width: 340px;
-        height: min(400px, calc(100vh - 128px));
-        height: min(400px, calc(100dvh - 128px));
+        max-width: 300px;
+        height: min(340px, calc(100vh - 118px));
+        height: min(340px, calc(100dvh - 118px));
       }
       #pfai-trigger { font-size: 12px; padding: 10px 13px; }
     }
