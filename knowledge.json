@@ -1,0 +1,184 @@
+{
+  "meta": {
+    "pageTitle": "Pro Fast AI — AI Assistant for Service Businesses"
+  },
+  "contact": {
+    "email": "Wilfried.lefebvre@gmail.com",
+    "phoneTel": "tel:+14242068097",
+    "phoneDisplay": "+1 (424) 206-8097",
+    "region": "Serving Orange County, CA",
+    "portfolioUrl": "https://portfolio-will-projects.vercel.app/"
+  },
+  "hero": {
+    "badge": "Now serving Orange County service businesses",
+    "h1Line1": "Never Miss a Client",
+    "h1Em": "Again",
+    "subtitle": "An AI assistant that answers inquiries 24/7, qualifies leads, books appointments, and captures revenue — automatically. Fast replies. No missed opportunities.",
+    "ctaPrimary": "Start Free 30 Days",
+    "ctaSecondary": "See It Live →",
+    "stats": [
+      { "num": "24/7", "label": "Always answering" },
+      { "num": "$0", "label": "To get started" },
+      { "num": "2hr", "label": "Setup time" },
+      { "num": "80%+", "label": "Questions handled" }
+    ]
+  },
+  "problem": {
+    "sectionLabel": "The Problem",
+    "h2Line1": "Clients reach out. Nobody",
+    "h2Em": "answers fast enough.",
+    "cards": [
+      {
+        "icon": "📞",
+        "title": "Missed calls after hours",
+        "body": "People call evenings and weekends with real questions. If nobody picks up, they move on to the next business on their list."
+      },
+      {
+        "icon": "💬",
+        "title": "Same questions, every day",
+        "body": "Hours, pricing, insurance, services, parking — your team answers the same things dozens of times. That time adds up."
+      },
+      {
+        "icon": "🗓️",
+        "title": "Bookings that never happen",
+        "body": "Without a simple booking path, prospects give up. You lose the appointment and the revenue."
+      },
+      {
+        "icon": "📉",
+        "title": "Lost leads every night",
+        "body": "Every unanswered message is someone who may have chosen you — if you had responded when they were ready."
+      }
+    ]
+  },
+  "howItWorks": {
+    "sectionLabel": "How It Works",
+    "h2Line1": "Live on your site in",
+    "h2Em": "48 hours",
+    "steps": [
+      {
+        "title": "You share your business info",
+        "body": "Services, hours, location, FAQs, booking policy, and what you want the bot to qualify. A 15-minute call or a quick email. That's it."
+      },
+      {
+        "title": "I build your custom AI bot",
+        "body": "Trained on your specific business. Answers in your tone. Handles your most common questions automatically."
+      },
+      {
+        "title": "It goes live on your website",
+        "body": "One line of code added to your site. Works on Wix, Squarespace, WordPress, or any platform. No technical knowledge needed on your end."
+      },
+      {
+        "title": "It works while you sleep",
+        "body": "Clients chat, get answers, and book appointments at 2am. You wake up to qualified leads and bookings in your inbox or calendar."
+      }
+    ]
+  },
+  "demo": {
+    "sectionLabel": "Live Demo",
+    "h2Line1": "Try it yourself —",
+    "h2Em": "right now",
+    "disclaimerParts": [
+      "The live demo below is currently set up as a ",
+      "restaurant",
+      " example. Your production bot is trained for your own business and industry."
+    ],
+    "placeholderTitle": "Live demo chatbot",
+    "placeholderBody": "Use the chat in this section to try a live conversation — the same style of experience your clients get on your site."
+  },
+  "pricing": {
+    "sectionLabel": "Pricing",
+    "h2Line1": "Simple pricing.",
+    "h2Em": "No surprises.",
+    "tiers": [
+      {
+        "id": "starter",
+        "name": "Starter",
+        "priceAmount": "$49",
+        "priceSuffix": "/mo",
+        "setup": "+ $149 one-time setup fee",
+        "featured": false,
+        "badge": null,
+        "features": [
+          "FAQ bot trained on your services & info",
+          "Hours, location & contact answers",
+          "Embedded on your website",
+          "QR code for print materials",
+          "Email support"
+        ]
+      },
+      {
+        "id": "standard",
+        "name": "Standard",
+        "priceAmount": "$99",
+        "priceSuffix": "/mo",
+        "setup": "+ $249 one-time setup fee",
+        "featured": true,
+        "badge": "Most Popular",
+        "features": [
+          "Everything in Starter",
+          "Appointment & booking integration",
+          "Lead capture (name, email, phone)",
+          "Calendly / booking calendar sync",
+          "Weekly conversation report",
+          "Priority email support"
+        ]
+      },
+      {
+        "id": "pro",
+        "name": "Pro",
+        "priceAmount": "$199",
+        "priceSuffix": "/mo",
+        "setup": "+ $399 one-time setup fee",
+        "featured": false,
+        "badge": null,
+        "features": [
+          "Everything in Standard",
+          "Monthly chatbot optimization",
+          "Custom branding & tone",
+          "QR codes for lobby, tables & marketing",
+          "Monthly performance report",
+          "Priority phone & email support"
+        ]
+      }
+    ]
+  },
+  "testimonials": {
+    "sectionLabel": "What Clients Say",
+    "h2Line1": "Real results for",
+    "h2Em": "real businesses",
+    "footnote": "* Replace with your real testimonials once collected from your first clients",
+    "items": [
+      {
+        "avatar": "🍝",
+        "quote": "\"We used to miss 20+ calls a week after hours. Now the bot handles everything — hours, menu questions, reservations. It paid for itself in the first week.\"",
+        "name": "Marco R.",
+        "role": "Owner, Italian Restaurant — Irvine, CA"
+      },
+      {
+        "avatar": "🍣",
+        "quote": "\"Setup was shockingly fast. Wilfried had it live on our site in two days. Our staff stopped answering the same questions 30 times a day.\"",
+        "name": "Jennifer L.",
+        "role": "Manager, Sushi Bar — Newport Beach, CA"
+      },
+      {
+        "avatar": "🥩",
+        "quote": "\"I was skeptical at first — $99 a month felt like a lot. Then I saw it book 11 reservations in one weekend while I was at a family event. Never looking back.\"",
+        "name": "David K.",
+        "role": "Owner, Steakhouse — Mission Viejo, CA"
+      }
+    ]
+  },
+  "cta": {
+    "sectionLabel": "Get Started",
+    "h2Line1": "30 days free.",
+    "h2Em": "No credit card.",
+    "body": "Let me set up a custom AI assistant for your business — completely free for 30 days. If you don't love it, you owe nothing.",
+    "primaryLabel": "Claim Your Free Trial",
+    "secondaryLabel": "Book a 10-Min Call",
+    "mailtoSubject": "Free Trial Request"
+  },
+  "footer": {
+    "logo": "Pro Fast AI Solutions",
+    "copyright": "© 2026 Wilfried Lefebvre. All rights reserved."
+  }
+}

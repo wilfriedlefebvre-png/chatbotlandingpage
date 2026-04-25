@@ -414,7 +414,7 @@
       font-size: 3rem; font-weight: 700; color: var(--white);
       line-height: 1;
     }
-    .price-amount span { font-size: 1rem; font-weight: 400; color: var(--gray); }
+    .price-amount .price-suffix { font-size: 1rem; font-weight: 400; color: var(--gray); }
     .price-setup { font-size: 0.8rem; color: var(--gray); margin-top: 6px; }
     .price-divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
     .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; }
@@ -510,29 +510,29 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
-  <div class="hero-badge">Now serving Orange County service businesses</div>
-  <h1>Never Miss a Client<br /><em>Again</em></h1>
-  <p class="hero-sub">An AI assistant that answers inquiries 24/7, qualifies leads, books appointments, and captures revenue — automatically. Fast replies. No missed opportunities.</p>
+  <div class="hero-badge" data-kb="hero.badge"></div>
+  <h1><span data-kb="hero.h1Line1"></span><br /><em data-kb="hero.h1Em"></em></h1>
+  <p class="hero-sub" data-kb="hero.subtitle"></p>
   <div class="hero-actions">
-    <a href="#pricing" class="btn-primary">Start Free 30 Days</a>
-    <a href="#demo" class="btn-secondary">See It Live →</a>
+    <a href="#pricing" class="btn-primary" data-kb="hero.ctaPrimary"></a>
+    <a href="#demo" class="btn-secondary" data-kb="hero.ctaSecondary"></a>
   </div>
   <div class="hero-stats">
     <div class="stat">
-      <div class="stat-num">24/7</div>
-      <div class="stat-label">Always answering</div>
+      <div class="stat-num" data-kb="hero.stats.0.num"></div>
+      <div class="stat-label" data-kb="hero.stats.0.label"></div>
     </div>
     <div class="stat">
-      <div class="stat-num">$0</div>
-      <div class="stat-label">To get started</div>
+      <div class="stat-num" data-kb="hero.stats.1.num"></div>
+      <div class="stat-label" data-kb="hero.stats.1.label"></div>
     </div>
     <div class="stat">
-      <div class="stat-num">2hr</div>
-      <div class="stat-label">Setup time</div>
+      <div class="stat-num" data-kb="hero.stats.2.num"></div>
+      <div class="stat-label" data-kb="hero.stats.2.label"></div>
     </div>
     <div class="stat">
-      <div class="stat-num">80%+</div>
-      <div class="stat-label">Questions handled</div>
+      <div class="stat-num" data-kb="hero.stats.3.num"></div>
+      <div class="stat-label" data-kb="hero.stats.3.label"></div>
     </div>
   </div>
 </section>
@@ -540,28 +540,28 @@
 <!-- PROBLEM -->
 <section class="problem">
   <div class="container">
-    <div class="section-label">The Problem</div>
-    <h2>Clients reach out. Nobody<br /><em>answers fast enough.</em></h2>
+    <div class="section-label" data-kb="problem.sectionLabel"></div>
+    <h2><span data-kb="problem.h2Line1"></span><br /><em data-kb="problem.h2Em"></em></h2>
     <div class="problem-grid">
       <div class="problem-card">
-        <div class="problem-icon">📞</div>
-        <h3>Missed calls after hours</h3>
-        <p>People call evenings and weekends with real questions. If nobody picks up, they move on to the next business on their list.</p>
+        <div class="problem-icon" data-kb="problem.cards.0.icon"></div>
+        <h3 data-kb="problem.cards.0.title"></h3>
+        <p data-kb="problem.cards.0.body"></p>
       </div>
       <div class="problem-card">
-        <div class="problem-icon">💬</div>
-        <h3>Same questions, every day</h3>
-        <p>Hours, pricing, insurance, services, parking — your team answers the same things dozens of times. That time adds up.</p>
+        <div class="problem-icon" data-kb="problem.cards.1.icon"></div>
+        <h3 data-kb="problem.cards.1.title"></h3>
+        <p data-kb="problem.cards.1.body"></p>
       </div>
       <div class="problem-card">
-        <div class="problem-icon">🗓️</div>
-        <h3>Bookings that never happen</h3>
-        <p>Without a simple booking path, prospects give up. You lose the appointment and the revenue.</p>
+        <div class="problem-icon" data-kb="problem.cards.2.icon"></div>
+        <h3 data-kb="problem.cards.2.title"></h3>
+        <p data-kb="problem.cards.2.body"></p>
       </div>
       <div class="problem-card">
-        <div class="problem-icon">📉</div>
-        <h3>Lost leads every night</h3>
-        <p>Every unanswered message is someone who may have chosen you — if you had responded when they were ready.</p>
+        <div class="problem-icon" data-kb="problem.cards.3.icon"></div>
+        <h3 data-kb="problem.cards.3.title"></h3>
+        <p data-kb="problem.cards.3.body"></p>
       </div>
     </div>
   </div>
@@ -570,35 +570,35 @@
 <!-- HOW IT WORKS -->
 <section id="how-it-works">
   <div class="container">
-    <div class="section-label">How It Works</div>
-    <h2>Live on your site in<br /><em>48 hours</em></h2>
+    <div class="section-label" data-kb="howItWorks.sectionLabel"></div>
+    <h2><span data-kb="howItWorks.h2Line1"></span><br /><em data-kb="howItWorks.h2Em"></em></h2>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-content">
-          <h3>You share your business info</h3>
-          <p>Services, hours, location, FAQs, booking policy, and what you want the bot to qualify. A 15-minute call or a quick email. That's it.</p>
+          <h3 data-kb="howItWorks.steps.0.title"></h3>
+          <p data-kb="howItWorks.steps.0.body"></p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-content">
-          <h3>I build your custom AI bot</h3>
-          <p>Trained on your specific business. Answers in your tone. Handles your most common questions automatically.</p>
+          <h3 data-kb="howItWorks.steps.1.title"></h3>
+          <p data-kb="howItWorks.steps.1.body"></p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-content">
-          <h3>It goes live on your website</h3>
-          <p>One line of code added to your site. Works on Wix, Squarespace, WordPress, or any platform. No technical knowledge needed on your end.</p>
+          <h3 data-kb="howItWorks.steps.2.title"></h3>
+          <p data-kb="howItWorks.steps.2.body"></p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
         <div class="step-content">
-          <h3>It works while you sleep</h3>
-          <p>Clients chat, get answers, and book appointments at 2am. You wake up to qualified leads and bookings in your inbox or calendar.</p>
+          <h3 data-kb="howItWorks.steps.3.title"></h3>
+          <p data-kb="howItWorks.steps.3.body"></p>
         </div>
       </div>
     </div>
@@ -608,14 +608,14 @@
 <!-- DEMO -->
 <section class="demo-section" id="demo">
   <div class="container">
-    <div class="section-label">Live Demo</div>
-    <h2>Try it yourself —<br /><em>right now</em></h2>
-    <p class="demo-live-disclaimer">The live demo below is currently set up as a <strong>restaurant</strong> example. Your production bot is trained for your own business and industry.</p>
+    <div class="section-label" data-kb="demo.sectionLabel"></div>
+    <h2><span data-kb="demo.h2Line1"></span><br /><em data-kb="demo.h2Em"></em></h2>
+    <p class="demo-live-disclaimer"><span data-kb="demo.disclaimerParts.0"></span><strong data-kb="demo.disclaimerParts.1"></strong><span data-kb="demo.disclaimerParts.2"></span></p>
     <div class="demo-wrap">
       <div id="demoPlaceholder" class="demo-placeholder">
         <div class="chat-icon">💬</div>
-        <h3>Live demo chatbot</h3>
-        <p>Use the chat in this section to try a live conversation — the same style of experience your clients get on your site.</p>
+        <h3 data-kb="demo.placeholderTitle"></h3>
+        <p data-kb="demo.placeholderBody"></p>
       </div>
       <div id="demoWidgetHost" class="demo-widget-host"></div>
     </div>
@@ -625,57 +625,37 @@
 <!-- PRICING -->
 <section id="pricing">
   <div class="container">
-    <div class="section-label">Pricing</div>
-    <h2>Simple pricing.<br /><em>No surprises.</em></h2>
+    <div class="section-label" data-kb="pricing.sectionLabel"></div>
+    <h2><span data-kb="pricing.h2Line1"></span><br /><em data-kb="pricing.h2Em"></em></h2>
     <div class="pricing-grid">
 
       <div class="price-card">
-        <div class="price-tier">Starter</div>
-        <div class="price-amount">$49<span>/mo</span></div>
-        <div class="price-setup">+ $149 one-time setup fee</div>
+        <div class="price-tier" data-kb="pricing.tiers.0.name"></div>
+        <div class="price-amount"><span data-kb="pricing.tiers.0.priceAmount"></span><span class="price-suffix" data-kb="pricing.tiers.0.priceSuffix"></span></div>
+        <div class="price-setup" data-kb="pricing.tiers.0.setup"></div>
         <hr class="price-divider" />
-        <ul class="price-features">
-          <li>FAQ bot trained on your services & info</li>
-          <li>Hours, location & contact answers</li>
-          <li>Embedded on your website</li>
-          <li>QR code for print materials</li>
-          <li>Email support</li>
-        </ul>
+        <ul class="price-features" data-kb-ul="pricing.tiers.0.features"></ul>
         <!-- REPLACE href WITH YOUR STRIPE PAYMENT LINK -->
         <a href="#contact" class="price-btn price-btn-outline">Start Free Trial</a>
       </div>
 
       <div class="price-card featured">
-        <div class="featured-badge">Most Popular</div>
-        <div class="price-tier">Standard</div>
-        <div class="price-amount">$99<span>/mo</span></div>
-        <div class="price-setup">+ $249 one-time setup fee</div>
+        <div class="featured-badge" data-kb="pricing.tiers.1.badge"></div>
+        <div class="price-tier" data-kb="pricing.tiers.1.name"></div>
+        <div class="price-amount"><span data-kb="pricing.tiers.1.priceAmount"></span><span class="price-suffix" data-kb="pricing.tiers.1.priceSuffix"></span></div>
+        <div class="price-setup" data-kb="pricing.tiers.1.setup"></div>
         <hr class="price-divider" />
-        <ul class="price-features">
-          <li>Everything in Starter</li>
-          <li>Appointment & booking integration</li>
-          <li>Lead capture (name, email, phone)</li>
-          <li>Calendly / booking calendar sync</li>
-          <li>Weekly conversation report</li>
-          <li>Priority email support</li>
-        </ul>
+        <ul class="price-features" data-kb-ul="pricing.tiers.1.features"></ul>
         <!-- REPLACE href WITH YOUR STRIPE PAYMENT LINK -->
         <a href="#contact" class="price-btn price-btn-gold">Start Free Trial</a>
       </div>
 
       <div class="price-card">
-        <div class="price-tier">Pro</div>
-        <div class="price-amount">$199<span>/mo</span></div>
-        <div class="price-setup">+ $399 one-time setup fee</div>
+        <div class="price-tier" data-kb="pricing.tiers.2.name"></div>
+        <div class="price-amount"><span data-kb="pricing.tiers.2.priceAmount"></span><span class="price-suffix" data-kb="pricing.tiers.2.priceSuffix"></span></div>
+        <div class="price-setup" data-kb="pricing.tiers.2.setup"></div>
         <hr class="price-divider" />
-        <ul class="price-features">
-          <li>Everything in Standard</li>
-          <li>Monthly chatbot optimization</li>
-          <li>Custom branding & tone</li>
-          <li>QR codes for lobby, tables & marketing</li>
-          <li>Monthly performance report</li>
-          <li>Priority phone & email support</li>
-        </ul>
+        <ul class="price-features" data-kb-ul="pricing.tiers.2.features"></ul>
         <!-- REPLACE href WITH YOUR STRIPE PAYMENT LINK -->
         <a href="#contact" class="price-btn price-btn-outline">Start Free Trial</a>
       </div>
@@ -687,68 +667,68 @@
 <!-- TESTIMONIALS -->
 <section class="testimonials" id="testimonials">
   <div class="container">
-    <div class="section-label">What Clients Say</div>
-    <h2>Real results for<br /><em>real businesses</em></h2>
+    <div class="section-label" data-kb="testimonials.sectionLabel"></div>
+    <h2><span data-kb="testimonials.h2Line1"></span><br /><em data-kb="testimonials.h2Em"></em></h2>
     <div class="testimonials-grid">
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"We used to miss 20+ calls a week after hours. Now the bot handles everything — hours, menu questions, reservations. It paid for itself in the first week."</p>
+        <p class="testimonial-text" data-kb="testimonials.items.0.quote"></p>
         <div class="testimonial-author">
-          <div class="author-avatar">🍝</div>
+          <div class="author-avatar" data-kb="testimonials.items.0.avatar"></div>
           <div>
-            <div class="author-name">Marco R.</div>
-            <div class="author-role">Owner, Italian Restaurant — Irvine, CA</div>
+            <div class="author-name" data-kb="testimonials.items.0.name"></div>
+            <div class="author-role" data-kb="testimonials.items.0.role"></div>
           </div>
         </div>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Setup was shockingly fast. Wilfried had it live on our site in two days. Our staff stopped answering the same questions 30 times a day."</p>
+        <p class="testimonial-text" data-kb="testimonials.items.1.quote"></p>
         <div class="testimonial-author">
-          <div class="author-avatar">🍣</div>
+          <div class="author-avatar" data-kb="testimonials.items.1.avatar"></div>
           <div>
-            <div class="author-name">Jennifer L.</div>
-            <div class="author-role">Manager, Sushi Bar — Newport Beach, CA</div>
+            <div class="author-name" data-kb="testimonials.items.1.name"></div>
+            <div class="author-role" data-kb="testimonials.items.1.role"></div>
           </div>
         </div>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"I was skeptical at first — $99 a month felt like a lot. Then I saw it book 11 reservations in one weekend while I was at a family event. Never looking back."</p>
+        <p class="testimonial-text" data-kb="testimonials.items.2.quote"></p>
         <div class="testimonial-author">
-          <div class="author-avatar">🥩</div>
+          <div class="author-avatar" data-kb="testimonials.items.2.avatar"></div>
           <div>
-            <div class="author-name">David K.</div>
-            <div class="author-role">Owner, Steakhouse — Mission Viejo, CA</div>
+            <div class="author-name" data-kb="testimonials.items.2.name"></div>
+            <div class="author-role" data-kb="testimonials.items.2.role"></div>
           </div>
         </div>
       </div>
     </div>
-    <p style="text-align:center; margin-top: 32px; font-size: 0.8rem; color: var(--gray); font-style: italic;">* Replace with your real testimonials once collected from your first clients</p>
+    <p style="text-align:center; margin-top: 32px; font-size: 0.8rem; color: var(--gray); font-style: italic;" data-kb="testimonials.footnote"></p>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section" id="contact">
   <div class="container">
-    <div class="section-label">Get Started</div>
-    <h2>30 days free.<br /><em>No credit card.</em></h2>
-    <p>Let me set up a custom AI assistant for your business — completely free for 30 days. If you don't love it, you owe nothing.</p>
+    <div class="section-label" data-kb="cta.sectionLabel"></div>
+    <h2><span data-kb="cta.h2Line1"></span><br /><em data-kb="cta.h2Em"></em></h2>
+    <p data-kb="cta.body"></p>
     <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-      <a href="mailto:Wilfried.lefebvre@gmail.com?subject=Free Trial Request" class="btn-primary">Claim Your Free Trial</a>
-      <a href="tel:+14242068097" class="btn-secondary">Book a 10-Min Call</a>
+      <a href="#contact" class="btn-primary" data-apply-mailto data-kb="cta.primaryLabel"></a>
+      <a href="#" class="btn-secondary" data-bind-tel data-kb="cta.secondaryLabel"></a>
     </div>
-    <p style="margin-top: 24px; font-size: 0.8rem; color: var(--gray);">📧 Wilfried.lefebvre@gmail.com &nbsp;·&nbsp; Serving Orange County, CA</p>
+    <p style="margin-top: 24px; font-size: 0.8rem; color: var(--gray);">📧 <span data-kb="contact.email"></span> &nbsp;·&nbsp; <span data-kb="contact.region"></span></p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Pro Fast AI Solutions</div>
-  <p>© 2026 Wilfried Lefebvre. All rights reserved.</p>
+  <div class="footer-logo" data-kb="footer.logo"></div>
+  <p data-kb="footer.copyright"></p>
   <div class="footer-links">
-    <a href="https://portfolio-will-projects.vercel.app/" target="_blank">Portfolio</a>
-    <a href="mailto:Wilfried.lefebvre@gmail.com">Email</a>
+    <a href="#" target="_blank" data-href-kb="contact.portfolioUrl">Portfolio</a>
+    <a href="#" data-bind-mailto>Email</a>
   </div>
 </footer>
 
@@ -971,8 +951,9 @@
     });
   })();
 </script>
-<script src="./demo-widget.js"></script>
-<script src="./profastai-chatbot.js"></script>
+<script defer src="./apply-knowledge.js"></script>
+<script defer src="./demo-widget.js"></script>
+<script defer src="./profastai-chatbot.js"></script>
 
 </body>
 </html>

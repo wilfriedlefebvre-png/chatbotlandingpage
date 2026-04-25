@@ -16,8 +16,153 @@
     transcript: []
   };
 
-  // Copy aligned with the live homepage (hero, problem, how it works, demo, pricing, CTA).
-  var SITE = {
+  var contactEmail = 'Wilfried.lefebvre@gmail.com';
+  var SITE = null;
+
+  function findFeature(tier, needle) {
+    var list = (tier && tier.features) || [];
+    var n = (needle || '').toLowerCase();
+    for (var i = 0; i < list.length; i++) {
+      if (String(list[i]).toLowerCase().indexOf(n) >= 0) return list[i];
+    }
+    return '';
+  }
+
+  function buildSite(kb) {
+    if (!kb) return null;
+    var h = kb.hero || {};
+    var stats = h.stats || [];
+    var heroLines = stats.map(function (s) {
+      return '• ' + s.num + ' — ' + s.label;
+    });
+    var heroStats = 'From the hero stats on this page:\n' + heroLines.join('\n');
+
+    var offer =
+      'From this page: Pro Fast AI is an AI assistant for Orange County service businesses. Headline promise: "' +
+      h.h1Line1 +
+      ' ' +
+      h.h1Em +
+      '." ' +
+      h.subtitle;
+
+    var p = kb.problem || {};
+    var painSummaries = (p.cards || []).map(function (c) {
+      return c.title.toLowerCase().replace(/\.$/, '');
+    });
+    var problem =
+      'From "The Problem" section: clients reach out but nobody answers fast enough. The page lists four pains: ' +
+      painSummaries.join('; ') +
+      ', in line with the cards on this page.';
+
+    var hiw = kb.howItWorks || {};
+    var steps = hiw.steps || [];
+    var howLines = steps.map(function (s, i) {
+      return i + 1 + ') ' + s.title + ': ' + s.body;
+    });
+    var howItWorks = 'From "How It Works" — live on your site in ' + hiw.h2Em + ':\n' + howLines.join('\n');
+
+    var step3 = steps[2] && steps[2].body;
+    var platforms = step3
+      ? 'From step 3 on this page: ' + step3
+      : 'From step 3 on this page: installation is one line of code. It works on Wix, Squarespace, WordPress, or any platform.';
+
+    var demo = kb.demo || {};
+    var demoStr =
+      'From the Live Demo section: you can try the chat in that section on this page. The page states the live demo is currently a ' +
+      (demo.disclaimerParts && demo.disclaimerParts[1] ? demo.disclaimerParts[1] : 'restaurant') +
+      ' example; your production bot is trained for your own business and industry. Use "See It Live" in the hero or scroll to #demo.';
+
+    var tiers = (kb.pricing && kb.pricing.tiers) || [];
+    var pricingBlocks = tiers.map(function (t) {
+      var setupPlain = String(t.setup || '').replace(/^\+\s*/, '');
+      var tierLabel = t.badge ? t.name + ' (' + t.badge + ')' : t.name;
+      return (
+        tierLabel +
+        ' — ' +
+        t.priceAmount +
+        t.priceSuffix +
+        ' + ' +
+        setupPlain +
+        '. Includes: ' +
+        (t.features || []).join('; ') +
+        '.'
+      );
+    });
+    var pricingAll = 'From the Pricing section — same numbers as on this page:\n\n' + pricingBlocks.join('\n\n');
+
+    var trial =
+      'From the page: 30 days free, no credit card. If you do not love it, you owe nothing. CTA: we set up a custom AI assistant for your business free for 30 days.';
+
+    var support =
+      'Taken from the plan bullets on this page: Starter includes email support. Standard adds priority email support. Pro adds priority phone and email support.';
+
+    var c = kb.contact || {};
+    var contact =
+      'From the footer and CTA on this page:\n• Email: ' +
+      (c.email || '') +
+      '\n• Phone: ' +
+      (c.phoneDisplay || '') +
+      '\n• ' +
+      (c.region || '') +
+      '\n• Portfolio link is in the site footer.';
+
+    var test = kb.testimonials || {};
+    var roles = (test.items || []).map(function (it) {
+      var r = it.role || '';
+      var parts = r.split('—');
+      return parts.length > 1 ? parts[parts.length - 1].trim() : r;
+    });
+    var testimonials =
+      'The testimonials block is titled "' +
+      test.h2Line1 +
+      ' ' +
+      test.h2Em +
+      '" and shows three hospitality examples (' +
+      roles.join(', ') +
+      '). ' +
+      (test.footnote || '');
+
+    var help =
+      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (restaurant example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want me to collect your info for a follow-up.';
+
+    var st = tiers[1];
+    var calendlyBooking = st
+      ? 'From the Standard plan on this page: ' +
+        [findFeature(st, 'appointment'), findFeature(st, 'lead'), findFeature(st, 'calendly'), findFeature(st, 'report'), findFeature(st, 'support')]
+          .filter(Boolean)
+          .join('; ') +
+        '.'
+      : 'From the Standard plan on this page: appointment & booking integration, Calendly / booking calendar sync, and lead capture (name, email, phone). Weekly conversation report and priority email support are also listed for Standard.';
+
+    var starter = tiers[0];
+    var proT = tiers[2];
+    var qrLine = findFeature(starter, 'qr');
+    var qrPro = findFeature(proT, 'qr');
+    var qrCodes =
+      'From this page: ' +
+      (qrLine || 'Starter includes a QR code for print materials.') +
+      ' ' +
+      (qrPro || 'Pro includes QR codes for lobby, tables & marketing.');
+
+    return {
+      offer: offer,
+      heroStats: heroStats,
+      problem: problem,
+      howItWorks: howItWorks,
+      platforms: platforms,
+      demo: demoStr,
+      pricingAll: pricingAll,
+      trial: trial,
+      support: support,
+      contact: contact,
+      testimonials: testimonials,
+      help: help,
+      calendlyBooking: calendlyBooking,
+      qrCodes: qrCodes
+    };
+  }
+
+  var FALLBACK_SITE = {
     offer:
       'From this page: Pro Fast AI is an AI assistant for Orange County service businesses. Headline promise: "Never Miss a Client Again." It answers inquiries 24/7, qualifies leads, books appointments, and captures revenue automatically — fast replies, fewer missed opportunities.',
     heroStats:
@@ -41,7 +186,11 @@
     testimonials:
       'The testimonials block is titled "Real results for real businesses" and shows three hospitality examples (Irvine, Newport Beach, Mission Viejo). The page also notes to replace with real testimonials when you have them.',
     help:
-      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (restaurant example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want me to collect your info for a follow-up.'
+      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (restaurant example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want me to collect your info for a follow-up.',
+    calendlyBooking:
+      'From the Standard plan on this page: appointment & booking integration, Calendly / booking calendar sync, and lead capture (name, email, phone). Weekly conversation report and priority email support are also listed for Standard.',
+    qrCodes:
+      'From this page: Starter includes a QR code for print materials. Pro includes QR codes for lobby, tables & marketing.'
   };
 
   function wantsLeadCapture(lower) {
@@ -123,11 +272,11 @@
     }
 
     if (lower.includes('calendly') || lower.includes('calendar sync') || lower.includes('booking integration') || lower.includes('appointment') || lower.includes('reservation') || lower.includes('booking')) {
-      return 'From the Standard plan on this page: appointment & booking integration, Calendly / booking calendar sync, and lead capture (name, email, phone). Weekly conversation report and priority email support are also listed for Standard.';
+      return SITE.calendlyBooking;
     }
 
     if (lower.includes('qr') || lower.includes('print')) {
-      return 'From this page: Starter includes a QR code for print materials. Pro includes QR codes for lobby, tables & marketing.';
+      return SITE.qrCodes;
     }
 
     if (lower.includes('wilfried')) {
@@ -246,7 +395,7 @@
     );
 
     var handoff = document.createElement('a');
-    handoff.href = 'mailto:Wilfried.lefebvre@gmail.com?subject=' + subject + '&body=' + body;
+    handoff.href = 'mailto:' + contactEmail + '?subject=' + subject + '&body=' + body;
     handoff.click();
   }
 
@@ -312,6 +461,17 @@
 
     addMessage(messagesEl, 'bot', SITE.help);
   }
+
+  var booted = false;
+
+  function bootBot(kb) {
+    if (booted || document.getElementById('pfai-shell')) return;
+    booted = true;
+
+    SITE = buildSite(kb) || FALLBACK_SITE;
+    if (kb && kb.contact && kb.contact.email) {
+      contactEmail = kb.contact.email;
+    }
 
   var styles = document.createElement('style');
   styles.textContent = `
@@ -518,4 +678,36 @@
       submitQuestion(label);
     });
   });
+  }
+
+  if (window.__PROFAST_KB__) {
+    bootBot(window.__PROFAST_KB__);
+  } else {
+    window.addEventListener('profat:kb', function onProfatKb(ev) {
+      window.removeEventListener('profat:kb', onProfatKb);
+      bootBot(ev.detail);
+    });
+    window.setTimeout(function () {
+      if (booted || document.getElementById('pfai-shell')) return;
+      if (window.__PROFAST_KB__) {
+        bootBot(window.__PROFAST_KB__);
+        return;
+      }
+      fetch('./knowledge.json')
+        .then(function (r) {
+          if (!r.ok) throw new Error(String(r.status));
+          return r.json();
+        })
+        .then(function (kb) {
+          window.__PROFAST_KB__ = kb;
+          if (typeof window.profastApplyKnowledge === 'function') {
+            window.profastApplyKnowledge(kb);
+          }
+          bootBot(kb);
+        })
+        .catch(function () {
+          bootBot(null);
+        });
+    }, 100);
+  }
 })();
