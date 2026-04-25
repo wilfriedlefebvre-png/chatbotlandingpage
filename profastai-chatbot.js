@@ -587,7 +587,7 @@
     #pfai-window {
       display: none;
       width: min(340px, calc(100vw - 24px));
-      height: 460px;
+      height: min(880px, calc(100vh - 96px));
       background: #111110;
       border: 1px solid #2a2a24;
       border-radius: 14px;
@@ -683,8 +683,8 @@
       #pfai-window {
         width: min(100%, calc(100vw - 20px));
         max-width: 300px;
-        height: min(340px, calc(100vh - 118px));
-        height: min(340px, calc(100dvh - 118px));
+        height: min(680px, calc(100vh - 100px));
+        height: min(680px, calc(100dvh - 100px));
       }
       #pfai-trigger { font-size: 12px; padding: 10px 13px; }
       /* 16px+ avoids iOS Safari zooming the page when the input is auto-focused */
