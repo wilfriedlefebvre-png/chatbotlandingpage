@@ -13,8 +13,17 @@
       phone: '',
       volume: ''
     },
-    transcript: []
+    transcript: [],
+    apiHistory: []
   };
+
+  function pfaiChatApiUrl() {
+    try {
+      return new URL('api/chat', document.baseURI || window.location.href).href;
+    } catch (e) {
+      return '/api/chat';
+    }
+  }
 
   var contactEmail = 'Wilfried.lefebvre@gmail.com';
   var SITE = null;
@@ -193,6 +202,88 @@
       'From this page: Starter includes a QR code for print materials. Pro includes QR codes for lobby, tables & marketing.'
   };
 
+  function buildPfaiSystemPrompt(site) {
+    var s = site || FALLBACK_SITE;
+    var full = [
+      'You are the Pro Fast AI assistant on the Pro Fast AI marketing website.',
+      'Answer using ONLY the knowledge block below. Do not invent prices, features, or contact details.',
+      'If something is not in the knowledge, say you do not have that on this page and suggest what you can help with (offer, pricing, trial, contact).',
+      'Be concise (about 2–6 sentences unless the visitor asks for more). Professional, warm tone.',
+      '',
+      'PAGE KNOWLEDGE:',
+      '---',
+      'OFFER / WHAT WE DO:\n' + s.offer,
+      '\nHERO STATS:\n' + s.heroStats,
+      '\nPROBLEM:\n' + s.problem,
+      '\nHOW IT WORKS:\n' + s.howItWorks,
+      '\nPLATFORMS / INSTALL:\n' + s.platforms,
+      '\nLIVE DEMO:\n' + s.demo,
+      '\nPRICING:\n' + s.pricingAll,
+      '\nTRIAL:\n' + s.trial,
+      '\nSUPPORT:\n' + s.support,
+      '\nCONTACT:\n' + s.contact,
+      '\nTESTIMONIALS:\n' + s.testimonials,
+      '\nBOOKING / CALENDAR (Standard):\n' + s.calendlyBooking,
+      '\nQR CODES:\n' + s.qrCodes
+    ].join('\n');
+    var maxLen = 10000;
+    if (full.length > maxLen) {
+      return full.slice(0, maxLen) + '\n\n[Page context truncated for the AI request size limit.]';
+    }
+    return full;
+  }
+
+  function setPfaiFormLoading(loading) {
+    var input = document.getElementById('pfai-input');
+    var send = document.getElementById('pfai-send');
+    if (input) input.disabled = !!loading;
+    if (send) send.disabled = !!loading;
+  }
+
+  function sendPfaiApi(messagesEl, userText) {
+    var trimmed = (userText || '').trim();
+    var lower = trimmed.toLowerCase();
+    state.apiHistory.push({ role: 'user', content: trimmed });
+
+    var payloadMessages =
+      state.apiHistory.length > 24 ? state.apiHistory.slice(-24) : state.apiHistory;
+
+    setPfaiFormLoading(true);
+
+    fetch(pfaiChatApiUrl(), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        messages: payloadMessages,
+        systemPrompt: buildPfaiSystemPrompt(SITE)
+      })
+    })
+      .then(function (res) {
+        return res.json().then(function (data) {
+          if (!res.ok) throw new Error((data && data.error) || 'request failed');
+          return data;
+        });
+      })
+      .then(function (data) {
+        var reply = data && data.reply;
+        if (!reply || !String(reply).trim()) throw new Error('empty reply');
+        addMessage(messagesEl, 'bot', String(reply).trim());
+        state.apiHistory.push({ role: 'assistant', content: String(reply).trim() });
+      })
+      .catch(function () {
+        var ans = replyFromKnowledge(lower);
+        var out = ans || SITE.help;
+        var fallbackMsg =
+          'Live AI is unavailable (check your connection, Vercel OPENAI_API_KEY, and redeploy). Page-based answer:\n\n' +
+          out;
+        addMessage(messagesEl, 'bot', fallbackMsg);
+        state.apiHistory.push({ role: 'assistant', content: fallbackMsg });
+      })
+      .then(function () {
+        setPfaiFormLoading(false);
+      });
+  }
+
   function wantsLeadCapture(lower) {
     if (lower.includes('demo') || lower.includes('see it live') || lower.includes('#demo')) return false;
     return (
@@ -362,6 +453,7 @@
   function startLeadFlow(messagesEl) {
     state.mode = 'lead_name';
     state.lead = { name: '', business: '', email: '', phone: '', volume: '' };
+    state.apiHistory = [];
     addMessage(messagesEl, 'bot', "Great. I'll help you get started. What is your full name?");
   }
 
@@ -453,13 +545,7 @@
       return;
     }
 
-    var ans = replyFromKnowledge(lower);
-    if (ans) {
-      addMessage(messagesEl, 'bot', ans);
-      return;
-    }
-
-    addMessage(messagesEl, 'bot', SITE.help);
+    sendPfaiApi(messagesEl, text);
   }
 
   var booted = false;
@@ -598,7 +684,7 @@
     <div id="pfai-window">
       <div class="pfai-header">
         <div class="pfai-title">Pro Fast AI Assistant</div>
-        <div class="pfai-sub">Service businesses · Orange County, CA</div>
+        <div class="pfai-sub">OpenAI + this page · Service businesses · Orange County, CA</div>
       </div>
       <div id="pfai-messages" class="pfai-messages"></div>
       <div class="pfai-quick">
@@ -632,7 +718,7 @@
       addMessage(
         messagesEl,
         'bot',
-        'Welcome. I answer from the content on this Pro Fast AI page only (so replies stay accurate). Ask about the offer, stats, problem, how it works, live demo, pricing, trial, support, or contact — or tap a shortcut below. Type "start free trial" when you want me to collect your details for a follow-up.'
+        'Welcome. Ask a question or use a shortcut below. Type start free trial when you want us to follow up.'
       );
     }
     inputEl.focus();
@@ -671,7 +757,7 @@
       if (topic && SITE[topic]) {
         addMessage(messagesEl, 'user', label);
         setTimeout(function () {
-          addMessage(messagesEl, 'bot', SITE[topic]);
+          sendPfaiApi(messagesEl, label);
         }, 200);
         return;
       }

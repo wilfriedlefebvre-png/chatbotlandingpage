@@ -3,7 +3,14 @@
   if (!host) return;
   var placeholder = document.getElementById('demoPlaceholder');
 
-  var API_URL = '/api/chat';
+  function chatApiUrl() {
+    try {
+      return new URL('api/chat', document.baseURI || window.location.href).href;
+    } catch (e) {
+      return '/api/chat';
+    }
+  }
+  var API_URL = chatApiUrl();
   var BOT_NAME = 'Clementine';
   var BOT_SUBTITLE = "Ask me anything - menus, reservations, catering and more.";
   var WELCOME_MSG = "Bonjour. I'm Clementine, your Creme de la Crepe assistant. How can I help you today?";

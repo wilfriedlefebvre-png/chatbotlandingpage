@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "check-env": "node -r dotenv/config -e \"console.log(process.env.OPENAI_API_KEY ? 'OPENAI_API_KEY set' : 'OPENAI_API_KEY missing')\"",
+    "dev": "NODE_OPTIONS='-r dotenv/config' npx vercel dev"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}
