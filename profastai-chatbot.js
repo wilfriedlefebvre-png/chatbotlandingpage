@@ -16,24 +16,173 @@
     transcript: []
   };
 
-  var FAQ = {
+  // Copy aligned with the live homepage (hero, problem, how it works, demo, pricing, CTA).
+  var SITE = {
     offer:
-      'Pro Fast AI builds custom AI assistants for service businesses — restaurants, medical, dental, med spas, and more. Your bot answers inquiries 24/7, qualifies leads, books appointments, and captures details so you do not miss after-hours revenue.',
-    stats:
-      'Highlights: 24/7 answering, $0 to get started, setup in about 2 hours, and 80%+ of common questions handled automatically.',
-    setup:
-      'How it works: (1) you share services, hours, FAQs, and booking rules, (2) we build your custom bot, (3) it is embedded on your site, (4) it handles client questions while you sleep. Typical go-live is within 48 hours.',
-    pricing:
-      'Pricing: Starter is $49/mo + $149 setup. Standard is $99/mo + $249 setup (most popular, includes appointment/booking integration and lead capture). Pro is $199/mo + $399 setup (includes monthly optimization and performance reporting).',
+      'From this page: Pro Fast AI is an AI assistant for Orange County service businesses. Headline promise: "Never Miss a Client Again." It answers inquiries 24/7, qualifies leads, books appointments, and captures revenue automatically — fast replies, fewer missed opportunities.',
+    heroStats:
+      'From the hero stats on this page:\n• 24/7 — Always answering\n• $0 — To get started\n• 2hr — Setup time\n• 80%+ — Questions handled',
+    problem:
+      'From "The Problem" section: clients reach out but nobody answers fast enough. The page lists four pains: missed calls after hours; the same questions every day (hours, pricing, insurance, services, parking); bookings that never happen without a simple path; and lost leads every night when messages go unanswered.',
+    howItWorks:
+      'From "How It Works" — live on your site in 48 hours:\n1) You share business info: services, hours, location, FAQs, booking policy, and what the bot should qualify. A 15-minute call or a quick email.\n2) We build your custom bot — trained on your business, in your tone.\n3) One line of code on your site — works on Wix, Squarespace, WordPress, or any platform; no technical knowledge needed.\n4) It works while you sleep — clients can chat and book at 2am; you wake up to leads and bookings in inbox or calendar.',
+    platforms:
+      'From step 3 on this page: installation is one line of code. It works on Wix, Squarespace, WordPress, or any platform. You do not need technical knowledge on your end.',
+    demo:
+      'From the Live Demo section: you can try the chat in that section on this page. The page states the live demo is currently a restaurant example; your production bot is trained for your own business and industry. Use "See It Live" in the hero or scroll to #demo.',
+    pricingAll:
+      'From the Pricing section — same numbers as on this page:\n\nStarter — $49/mo + $149 one-time setup. Includes: FAQ bot on your services & info; hours, location & contact; embed on your site; QR for print materials; email support.\n\nStandard (Most Popular) — $99/mo + $249 setup. Everything in Starter, plus appointment & booking integration; lead capture (name, email, phone); Calendly / booking calendar sync; weekly conversation report; priority email support.\n\nPro — $199/mo + $399 setup. Everything in Standard, plus monthly chatbot optimization; custom branding & tone; QR codes for lobby, tables & marketing; monthly performance report; priority phone & email support.',
     trial:
-      'You get 30 days free with no credit card required. If you do not love it, you owe nothing.',
+      'From the page: 30 days free, no credit card. If you do not love it, you owe nothing. CTA: we set up a custom AI assistant for your business free for 30 days.',
     support:
-      'Support by plan: email support on Starter, priority email support on Standard, and priority phone + email support on Pro.',
+      'Taken from the plan bullets on this page: Starter includes email support. Standard adds priority email support. Pro adds priority phone and email support.',
     contact:
-      'Contact Pro Fast AI: Wilfried.lefebvre@gmail.com or +1 (424) 206-8097. Service area: Orange County, CA.',
+      'From the footer and CTA on this page:\n• Email: Wilfried.lefebvre@gmail.com\n• Phone: +1 (424) 206-8097\n• Serving Orange County, CA\n• Portfolio link is in the site footer.',
     testimonials:
-      'Case studies on the site include hospitality clients who report fewer missed after-hours inquiries, less repetitive work for staff, and more bookings captured while they are off the clock.'
+      'The testimonials block is titled "Real results for real businesses" and shows three hospitality examples (Irvine, Newport Beach, Mission Viejo). The page also notes to replace with real testimonials when you have them.',
+    help:
+      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (restaurant example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want me to collect your info for a follow-up.'
   };
+
+  function wantsLeadCapture(lower) {
+    if (lower.includes('demo') || lower.includes('see it live') || lower.includes('#demo')) return false;
+    return (
+      lower.includes('start free trial') ||
+      lower.includes('start my free trial') ||
+      lower.includes('claim your free trial') ||
+      lower.includes('claim my free trial') ||
+      lower.includes('free trial request') ||
+      (lower.includes('free trial') && (lower.includes('want') || lower.includes('sign') || lower.includes('start'))) ||
+      lower.includes('sign up') ||
+      lower.includes('sign me up') ||
+      lower.includes('collect my info') ||
+      lower.includes('book a 10') ||
+      lower.includes('10-min call') ||
+      lower.includes('10 min call')
+    );
+  }
+
+  function replyFromKnowledge(lower) {
+    if (
+      lower.includes('hello') ||
+      lower.includes('hi ') ||
+      lower === 'hi' ||
+      lower.includes('hey')
+    ) {
+      return SITE.offer + '\n\n' + SITE.help;
+    }
+
+    if (
+      lower.includes('demo') ||
+      lower.includes('see it live') ||
+      lower.includes('try it yourself') ||
+      lower.includes('live demo')
+    ) {
+      return SITE.demo;
+    }
+
+    if (
+      lower.includes('problem') ||
+      lower.includes('pain') ||
+      lower.includes('missed call') ||
+      lower.includes('after hours') ||
+      lower.includes('why do i need')
+    ) {
+      return SITE.problem;
+    }
+
+    if (
+      lower.includes('how it work') ||
+      lower.includes('process') ||
+      lower.includes('steps') ||
+      lower.includes('48 hour') ||
+      lower.includes('48 hours') ||
+      lower.includes('setup time') ||
+      lower.includes('2 hour') ||
+      lower.includes('2hr')
+    ) {
+      return SITE.howItWorks;
+    }
+
+    if (lower.includes('wix') || lower.includes('squarespace') || lower.includes('wordpress') || lower.includes('one line')) {
+      return SITE.platforms;
+    }
+
+    if (
+      lower.includes('starter') ||
+      (lower.includes('standard') && !lower.includes('compare')) ||
+      lower.includes('most popular') ||
+      lower.includes('pro plan') ||
+      (/\bpro\b/.test(lower) && (lower.includes('plan') || lower.includes('tier') || lower.includes('pricing')))
+    ) {
+      return SITE.pricingAll;
+    }
+
+    if (lower.includes('price') || lower.includes('pricing') || lower.includes('cost') || lower.includes('how much') || lower.includes('$49') || lower.includes('$99') || lower.includes('$199')) {
+      return SITE.pricingAll;
+    }
+
+    if (lower.includes('calendly') || lower.includes('calendar sync') || lower.includes('booking integration') || lower.includes('appointment') || lower.includes('reservation') || lower.includes('booking')) {
+      return 'From the Standard plan on this page: appointment & booking integration, Calendly / booking calendar sync, and lead capture (name, email, phone). Weekly conversation report and priority email support are also listed for Standard.';
+    }
+
+    if (lower.includes('qr') || lower.includes('print')) {
+      return 'From this page: Starter includes a QR code for print materials. Pro includes QR codes for lobby, tables & marketing.';
+    }
+
+    if (lower.includes('wilfried')) {
+      return SITE.contact;
+    }
+
+    if (lower.includes('thank')) {
+      return 'You are welcome. If anything on this page is unclear, ask again or use the shortcuts. Say "start free trial" when you are ready to leave your details.';
+    }
+
+    if (lower.includes('trial') || lower.includes('credit card') || lower.includes('30 day')) {
+      return SITE.trial;
+    }
+
+    if (lower.includes('support') || lower.includes('priority email') || lower.includes('priority phone')) {
+      return SITE.support;
+    }
+
+    if (
+      lower.includes('contact') ||
+      lower.includes('email') ||
+      lower.includes('phone') ||
+      lower.includes('call') ||
+      lower.includes('portfolio') ||
+      lower.includes('orange county')
+    ) {
+      return SITE.contact;
+    }
+
+    if (lower.includes('testimonial') || lower.includes('review') || lower.includes('clients say') || lower.includes('results')) {
+      return SITE.testimonials;
+    }
+
+    if (
+      lower.includes('24/7') ||
+      lower.includes('80%') ||
+      lower.includes('$0') ||
+      lower.includes('stat')
+    ) {
+      return SITE.heroStats;
+    }
+
+    if (
+      lower.includes('what is profast') ||
+      lower.includes('what is pro fast') ||
+      lower.includes('what do you do') ||
+      lower.includes('who are you') ||
+      lower.includes('ai assistant') ||
+      lower.includes('ai receptionist')
+    ) {
+      return SITE.offer;
+    }
+
+    return null;
+  }
 
   function addTranscript(role, text) {
     state.transcript.push('[' + new Date().toLocaleString() + '] ' + role + ': ' + text);
@@ -148,65 +297,20 @@
       return;
     }
 
-    var lower = text.toLowerCase();
+    var lower = text.toLowerCase().trim();
 
-    if (
-      lower.includes('start') ||
-      lower.includes('free trial') ||
-      lower.includes('book a call') ||
-      lower.includes('demo') ||
-      lower.includes('get started')
-    ) {
+    if (wantsLeadCapture(lower)) {
       startLeadFlow(messagesEl);
       return;
     }
 
-    if (lower.includes('what is profast') || lower.includes('what do you do') || lower.includes('ai receptionist') || lower.includes('ai assistant')) {
-      addMessage(messagesEl, 'bot', FAQ.offer);
-      return;
-    }
-    if (lower.includes('stat') || lower.includes('24/7') || lower.includes('2hr') || lower.includes('80%')) {
-      addMessage(messagesEl, 'bot', FAQ.stats);
-      return;
-    }
-    if (lower.includes('price') || lower.includes('cost') || lower.includes('plan')) {
-      addMessage(messagesEl, 'bot', FAQ.pricing);
-      return;
-    }
-    if (lower.includes('setup') || lower.includes('install') || lower.includes('live')) {
-      addMessage(messagesEl, 'bot', FAQ.setup);
-      return;
-    }
-    if (lower.includes('integrat') || lower.includes('calendar') || lower.includes('booking')) {
-      addMessage(messagesEl, 'bot', FAQ.setup);
-      return;
-    }
-    if (lower.includes('free trial') || lower.includes('no credit card') || lower.includes('trial')) {
-      addMessage(messagesEl, 'bot', FAQ.trial);
-      return;
-    }
-    if (lower.includes('support') || lower.includes('help')) {
-      addMessage(messagesEl, 'bot', FAQ.support);
-      return;
-    }
-    if (lower.includes('result') || lower.includes('roi') || lower.includes('benefit')) {
-      addMessage(messagesEl, 'bot', FAQ.testimonials);
-      return;
-    }
-    if (lower.includes('testimonial') || lower.includes('client') || lower.includes('review')) {
-      addMessage(messagesEl, 'bot', FAQ.testimonials);
-      return;
-    }
-    if (lower.includes('email') || lower.includes('phone') || lower.includes('contact')) {
-      addMessage(messagesEl, 'bot', FAQ.contact);
+    var ans = replyFromKnowledge(lower);
+    if (ans) {
+      addMessage(messagesEl, 'bot', ans);
       return;
     }
 
-    addMessage(
-      messagesEl,
-      'bot',
-      'I can answer questions about Pro Fast AI for service businesses: what we do, how setup works, pricing, trial terms, support, and contact. Type "start free trial" if you want me to collect your details for a follow-up.'
-    );
+    addMessage(messagesEl, 'bot', SITE.help);
   }
 
   var styles = document.createElement('style');
@@ -338,10 +442,10 @@
       </div>
       <div id="pfai-messages" class="pfai-messages"></div>
       <div class="pfai-quick">
-        <button class="pfai-chip" type="button">What is Pro Fast AI?</button>
-        <button class="pfai-chip" type="button">How it works</button>
-        <button class="pfai-chip" type="button">Pricing</button>
-        <button class="pfai-chip" type="button">30-day free trial</button>
+        <button class="pfai-chip" type="button" data-topic="offer">What is Pro Fast AI?</button>
+        <button class="pfai-chip" type="button" data-topic="howItWorks">How it works</button>
+        <button class="pfai-chip" type="button" data-topic="pricingAll">Pricing</button>
+        <button class="pfai-chip" type="button" data-topic="trial">30-day free trial</button>
       </div>
       <form id="pfai-form" class="pfai-input-row">
         <input id="pfai-input" placeholder="Ask anything or type 'start free trial'" autocomplete="off" />
@@ -368,7 +472,7 @@
       addMessage(
         messagesEl,
         'bot',
-        'Welcome. I am the Pro Fast AI assistant for service businesses. Ask about 24/7 replies, lead capture, booking, pricing, or our 30-day trial. Type "start free trial" any time to share your details for a follow-up.'
+        'Welcome. I answer from the content on this Pro Fast AI page only (so replies stay accurate). Ask about the offer, stats, problem, how it works, live demo, pricing, trial, support, or contact — or tap a shortcut below. Type "start free trial" when you want me to collect your details for a follow-up.'
       );
     }
     inputEl.focus();
@@ -402,7 +506,16 @@
 
   chips.forEach(function (chip) {
     chip.addEventListener('click', function () {
-      submitQuestion(chip.textContent || '');
+      var topic = chip.getAttribute('data-topic');
+      var label = (chip.textContent || '').trim();
+      if (topic && SITE[topic]) {
+        addMessage(messagesEl, 'user', label);
+        setTimeout(function () {
+          addMessage(messagesEl, 'bot', SITE[topic]);
+        }, 200);
+        return;
+      }
+      submitQuestion(label);
     });
   });
 })();
