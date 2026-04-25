@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Pro Fast AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; }
+    body { background: #0a0a0a; }
+    .pfa-standalone-top {
+      font-family: 'Inter', system-ui, sans-serif;
+      text-align: center;
+      padding: 14px 16px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .pfa-standalone-top a {
+      color: #c9a84c;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .pfa-standalone-top a:hover { text-decoration: underline; }
+
+    .pfa-faq-section {
+      background: #0a0a0a;
+      padding: 100px 24px;
+      font-family: 'Inter', system-ui, sans-serif;
+      border-top: 1px solid #1a1a1a;
+    }
+    .pfa-faq-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .pfa-faq-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .pfa-faq-label {
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #c9a84c;
+      font-weight: 500;
+    }
+    .pfa-faq-title {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 600;
+      color: #f5f0e8;
+      margin: 12px 0 14px;
+      line-height: 1.2;
+    }
+    .pfa-faq-sub {
+      font-size: 15px;
+      color: #666;
+      margin: 0;
+      line-height: 1.7;
+    }
+    .pfa-faq-item {
+      border-bottom: 1px solid #1e1e1e;
+    }
+    .pfa-faq-item:first-of-type {
+      border-top: 1px solid #1e1e1e;
+    }
+    .pfa-faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      text-align: left;
+    }
+    .pfa-faq-q-text {
+      font-size: 15px;
+      font-weight: 500;
+      color: #f0ead8;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .pfa-faq-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background .2s, border-color .2s;
+    }
+    .pfa-faq-icon svg {
+      transition: transform .25s ease;
+    }
+    .pfa-faq-item.open .pfa-faq-icon {
+      background: #c9a84c22;
+      border-color: #c9a84c;
+    }
+    .pfa-faq-item.open .pfa-faq-icon svg {
+      transform: rotate(45deg);
+    }
+    .pfa-faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease, padding .3s ease;
+    }
+    .pfa-faq-item.open .pfa-faq-a {
+      max-height: 1200px;
+    }
+    .pfa-faq-a-inner {
+      padding-bottom: 22px;
+      font-size: 14px;
+      color: #888;
+      line-height: 1.8;
+    }
+    .pfa-faq-a-inner strong {
+      color: #c9a84c;
+    }
+    .pfa-faq-cta {
+      text-align: center;
+      margin-top: 56px;
+      padding: 40px 32px;
+      background: #111;
+      border: 1px solid #1e1e1e;
+      border-radius: 16px;
+    }
+    .pfa-faq-cta p {
+      font-size: 15px;
+      color: #888;
+      margin: 0 0 20px;
+      line-height: 1.7;
+    }
+    .pfa-faq-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #c9a84c;
+      color: #0a0a0a;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: .02em;
+      transition: opacity .2s;
+    }
+    .pfa-faq-cta a:hover { opacity: .88; }
+    @media (max-width: 768px) {
+      .pfa-faq-section { padding: 60px 20px; }
+      .pfa-faq-q-text { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="pfa-standalone-top">
+    <a href="index.html">← Back to Pro Fast AI</a>
+  </div>
+
+  <section class="pfa-faq-section">
+    <div class="pfa-faq-inner">
+
+      <div class="pfa-faq-header">
+        <div class="pfa-faq-label">Got questions</div>
+        <h2 class="pfa-faq-title">Everything restaurant owners ask us</h2>
+        <p class="pfa-faq-sub">No tech jargon. Just straight answers.</p>
+      </div>
+
+      <div id="pfaFaqList">
+
+        <div class="pfa-faq-item">
+          <button type="button" class="pfa-faq-q" onclick="pfaToggle(this)">
+            <span class="pfa-faq-q-text">How long does it take to set up on my website?</span>
+            <span class="pfa-faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#c9a84c" stroke-width="1.8" aria-hidden="true"><line x1="5" y1="0" x2="5" y2="10"/><line x1="0" y1="5" x2="10" y2="5"/></svg></span>
+          </button>
+          <div class="pfa-faq-a"><div class="pfa-faq-a-inner">
+            Usually <strong>24 to 48 hours</strong> from the moment you sign up. We handle everything — building the bot, loading your menu and FAQs, connecting your reservation system, and embedding it on your site. You don't touch a single line of code.
+          </div></div>
+        </div>
+
+        <div class="pfa-faq-item">
+          <button type="button" class="pfa-faq-q" onclick="pfaToggle(this)">
+            <span class="pfa-faq-q-text">Do I need to know anything about technology or AI?</span>
+            <span class="pfa-faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#c9a84c" stroke-width="1.8" aria-hidden="true"><line x1="5" y1="0" x2="5" y2="10"/><line x1="0" y1="5" x2="10" y2="5"/></svg></span>
+          </button>
+          <div class="pfa-faq-a"><div class="pfa-faq-a-inner">
+            <strong>Not at all.</strong> Your only job is to send us your menu, your hours, and your reservation link. We take it from there. If something needs updating — a new menu, changed hours, a holiday closure — you send us a message and we handle it, usually the same day.
+          </div></div>
+        </div>
+
+        <div class="pfa-faq-item">
+          <button type="button" class="pfa-faq-q" onclick="pfaToggle(this)">
+            <span class="pfa-faq-q-text">What happens if the bot doesn't know the answer to a question?</span>
+            <span class="pfa-faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#c9a84c" stroke-width="1.8" aria-hidden="true"><line x1="5" y1="0" x2="5" y2="10"/><line x1="0" y1="5" x2="10" y2="5"/></svg></span>
+          </button>
+          <div class="pfa-faq-a"><div class="pfa-faq-a-inner">
+            The bot is trained to handle this gracefully. It tells the customer it will have the team follow up, and the inquiry is <strong>logged directly to your dashboard</strong> so nothing slips through. It never guesses, never makes up information, and never leaves a customer hanging without a next step.
+          </div></div>
+        </div>
+
+        <div class="pfa-faq-item">
+          <button type="button" class="pfa-faq-q" onclick="pfaToggle(this)">
+            <span class="pfa-faq-q-text">Does it work with my existing reservation system — OpenTable, Resy, or others?</span>
+            <span class="pfa-faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#c9a84c" stroke-width="1.8" aria-hidden="true"><line x1="5" y1="0" x2="5" y2="10"/><line x1="0" y1="5" x2="10" y2="5"/></svg></span>
+          </button>
+          <div class="pfa-faq-a"><div class="pfa-faq-a-inner">
+            Yes. The bot connects directly to <strong>OpenTable, Resy, Yelp Reservations</strong>, and any other platform that has a public booking link. When a guest is ready to reserve, the bot hands them off seamlessly — no duplicate systems, no extra subscriptions required.
+          </div></div>
+        </div>
+
+        <div class="pfa-faq-item">
+          <button type="button" class="pfa-faq-q" onclick="pfaToggle(this)">
+            <span class="pfa-faq-q-text">How do I see the inquiries and leads the bot captures?</span>
+            <span class="pfa-faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#c9a84c" stroke-width="1.8" aria-hidden="true"><line x1="5" y1="0" x2="5" y2="10"/><line x1="0" y1="5" x2="10" y2="5"/></svg></span>
+          </button>
+          <div class="pfa-faq-a"><div class="pfa-faq-a-inner">
+            Every lead — private event request, catering inquiry, large party booking — is logged automatically to a <strong>Google Sheet that only you can access</strong>. Wake up to a clean list of overnight inquiries, already organized with name, contact, date, and party size. No login, no new software to learn.
+          </div></div>
+        </div>
+
+        <div class="pfa-faq-item">
+          <button type="button" class="pfa-faq-q" onclick="pfaToggle(this)">
+            <span class="pfa-faq-q-text">What if I want to update the menu or change my hours?</span>
+            <span class="pfa-faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#c9a84c" stroke-width="1.8" aria-hidden="true"><line x1="5" y1="0" x2="5" y2="10"/><line x1="0" y1="5" x2="10" y2="5"/></svg></span>
+          </button>
+          <div class="pfa-faq-a"><div class="pfa-faq-a-inner">
+            Just send us a message — text, email, or WhatsApp. <strong>We update it within 24 hours</strong>, usually the same day. On the Standard and Pro plans, unlimited updates are included. No extra charges, no waiting in a support queue.
+          </div></div>
+        </div>
+
+        <div class="pfa-faq-item">
+          <button type="button" class="pfa-faq-q" onclick="pfaToggle(this)">
+            <span class="pfa-faq-q-text">Is there a contract or can I cancel anytime?</span>
+            <span class="pfa-faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#c9a84c" stroke-width="1.8" aria-hidden="true"><line x1="5" y1="0" x2="5" y2="10"/><line x1="0" y1="5" x2="10" y2="5"/></svg></span>
+          </button>
+          <div class="pfa-faq-a"><div class="pfa-faq-a-inner">
+            <strong>Month to month, no contracts.</strong> Cancel with 30 days notice anytime. We're confident enough in the results that we don't need to lock you in. Most clients stay because the bot pays for itself within the first week of leads captured.
+          </div></div>
+        </div>
+
+        <div class="pfa-faq-item">
+          <button type="button" class="pfa-faq-q" onclick="pfaToggle(this)">
+            <span class="pfa-faq-q-text">How is this different from a generic chatbot I could add for free?</span>
+            <span class="pfa-faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#c9a84c" stroke-width="1.8" aria-hidden="true"><line x1="5" y1="0" x2="5" y2="10"/><line x1="0" y1="5" x2="10" y2="5"/></svg></span>
+          </button>
+          <div class="pfa-faq-a"><div class="pfa-faq-a-inner">
+            Free chatbots give scripted, rigid answers. Ours is built on <strong>advanced AI</strong> that understands natural conversation — a guest can ask "do you have something light for a date night that isn't too heavy?" and get a real, helpful answer. It's also built specifically for restaurants by someone with 20 years in the hospitality industry. The difference shows in every conversation.
+          </div></div>
+        </div>
+
+        <div class="pfa-faq-item">
+          <button type="button" class="pfa-faq-q" onclick="pfaToggle(this)">
+            <span class="pfa-faq-q-text">What are the differences between the Starter, Standard, and Pro plans?</span>
+            <span class="pfa-faq-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#c9a84c" stroke-width="1.8" aria-hidden="true"><line x1="5" y1="0" x2="5" y2="10"/><line x1="0" y1="5" x2="10" y2="5"/></svg></span>
+          </button>
+          <div class="pfa-faq-a"><div class="pfa-faq-a-inner">
+            <strong style="color:#f0ead8;">Starter — $49/mo</strong><br>
+            A smart bot trained on your restaurant's information — menu, hours, location, parking, FAQs. It answers customer questions accurately, 24/7, without any staff involvement. Perfect if your main goal is to stop fielding repetitive questions.<br><br>
+            <strong style="color:#f0ead8;">Standard — $99/mo</strong><br>
+            Everything in Starter, plus two key upgrades. First, the bot actively guides guests toward your reservation system — OpenTable, Resy, or your own form — so website visitors convert into confirmed bookings instead of just browsing. Second, it runs on <strong>advanced OpenAI technology</strong>, meaning it understands natural, unscripted questions the way a real host would. This is our most popular plan.<br><br>
+            <strong style="color:#f0ead8;">Pro — $199/mo</strong><br>
+            Everything in Standard, plus an automated <strong>4-message SMS follow-up sequence</strong> sent to every guest who makes an inquiry or reservation. The sequence confirms their booking, sends a reminder 24 hours before, checks in after their visit, and invites them to leave a review — all automatically. It turns a one-time visitor into a repeat customer without you lifting a finger.
+          </div></div>
+        </div>
+
+      </div>
+
+      <div class="pfa-faq-cta">
+        <p>Still have a question? I'm a real person — reach out directly and I'll get back to you the same day.</p>
+        <a href="mailto:profastai@gmail.com">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          Ask a question
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function pfaToggle(btn) {
+      var item = btn.closest('.pfa-faq-item');
+      var isOpen = item.classList.contains('open');
+      var openItems = document.querySelectorAll('.pfa-faq-item.open');
+      for (var i = 0; i < openItems.length; i++) {
+        openItems[i].classList.remove('open');
+      }
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+</html>
