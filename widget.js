@@ -191,7 +191,7 @@
       return 'Yes, catering is available for private events and office gatherings. Please share your event date and guest count.';
     }
     if (lower.includes('contact') || lower.includes('phone') || lower.includes('email')) {
-      return 'Call us at +1 (424) 206-8097 or email Wilfried.lefebvre@gmail.com and we will help right away.';
+      return 'Call us at +1 (424) 206-8097 or email profastai@gmail.com and we will help right away.';
     }
     if (lower.includes('location') || lower.includes('address')) {
       return 'We serve Orange County. Tell me your city and I can guide you to the nearest location.';

@@ -934,9 +934,9 @@
     var botConfig = {
       name: 'Pro Fast AI Assistant',
       hours: 'Example hours vary by business. Your bot answers with the hours you provide.',
-      location: 'We serve Orange County, CA. For bookings or custom setup, contact Wilfried by email or phone.',
+      location: 'We serve Orange County, CA. For bookings or custom setup, contact us by email or phone.',
       phone: '+1 (424) 206-8097',
-      email: 'Wilfried.lefebvre@gmail.com',
+      email: 'profastai@gmail.com',
       booking: 'For appointment requests, share preferred date, time, and contact details so we can follow up quickly.',
       parking: 'Parking and access details can be included in your FAQ so the bot answers consistently.',
       menu: 'Services, pricing ranges, and policies can all be answered once your business info is added to the bot.'
@@ -1010,7 +1010,7 @@
         if (toDigits(value).length < 10) return 'Please enter a valid phone number with at least 10 digits.';
         flowState.lead.phone = value;
         flowState.mode = 'normal';
-        return 'Done. You are on the list.\nLead captured:\n- Name: ' + flowState.lead.name + '\n- Email: ' + flowState.lead.email + '\n- Phone: ' + flowState.lead.phone + '\n\nWilfried will reach out shortly to launch your 30-day trial.';
+        return 'Done. You are on the list.\nLead captured:\n- Name: ' + flowState.lead.name + '\n- Email: ' + flowState.lead.email + '\n- Phone: ' + flowState.lead.phone + '\n\nWe will reach out shortly to launch your 30-day trial.';
       }
       return null;
     }

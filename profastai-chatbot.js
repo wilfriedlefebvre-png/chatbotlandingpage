@@ -25,7 +25,7 @@
     }
   }
 
-  var contactEmail = 'Wilfried.lefebvre@gmail.com';
+  var contactEmail = 'profastai@gmail.com';
   var SITE = null;
 
   function findFeature(tier, needle) {
@@ -132,7 +132,7 @@
       (test.footnote || '');
 
     var help =
-      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (restaurant example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want me to collect your info for a follow-up.';
+      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (restaurant example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want us to collect your info for a follow-up.';
 
     var st = tiers[1];
     var calendlyBooking = st
@@ -191,11 +191,11 @@
     support:
       'Taken from the plan bullets on this page: Starter includes email support. Standard adds priority email support. Pro adds priority phone and email support.',
     contact:
-      'From the footer and CTA on this page:\n• Email: Wilfried.lefebvre@gmail.com\n• Phone: +1 (424) 206-8097\n• Serving Orange County, CA\n• Portfolio link is in the site footer.',
+      'From the footer and CTA on this page:\n• Email: profastai@gmail.com\n• Phone: +1 (424) 206-8097\n• Serving Orange County, CA\n• Portfolio link is in the site footer.',
     testimonials:
       'The testimonials block is titled "Real results for real businesses" and shows three hospitality examples (Irvine, Newport Beach, Mission Viejo). The page also notes to replace with real testimonials when you have them.',
     help:
-      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (restaurant example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want me to collect your info for a follow-up.',
+      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (restaurant example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want us to collect your info for a follow-up.',
     calendlyBooking:
       'From the Standard plan on this page: appointment & booking integration, Calendly / booking calendar sync, and lead capture (name, email, phone). Weekly conversation report and priority email support are also listed for Standard.',
     qrCodes:
@@ -370,7 +370,7 @@
       return SITE.qrCodes;
     }
 
-    if (lower.includes('wilfried')) {
+    if (lower.includes('profastai')) {
       return SITE.contact;
     }
 
@@ -454,7 +454,7 @@
     state.mode = 'lead_name';
     state.lead = { name: '', business: '', email: '', phone: '', volume: '' };
     state.apiHistory = [];
-    addMessage(messagesEl, 'bot', "Great. I'll help you get started. What is your full name?");
+    addMessage(messagesEl, 'bot', "Great. We'll help you get started. What is your full name?");
   }
 
   function finishLeadFlow(messagesEl) {

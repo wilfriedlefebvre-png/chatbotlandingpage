@@ -3,7 +3,7 @@
     "pageTitle": "Pro Fast AI — AI Assistant for Service Businesses"
   },
   "contact": {
-    "email": "Wilfried.lefebvre@gmail.com",
+    "email": "profastai@gmail.com",
     "phoneTel": "tel:+14242068097",
     "phoneDisplay": "+1 (424) 206-8097",
     "region": "Serving Orange County, CA",
@@ -60,7 +60,7 @@
         "body": "Services, hours, location, FAQs, booking policy, and what you want the bot to qualify. A 15-minute call or a quick email. That's it."
       },
       {
-        "title": "I build your custom AI bot",
+        "title": "We build your custom AI bot",
         "body": "Trained on your specific business. Answers in your tone. Handles your most common questions automatically."
       },
       {
@@ -156,7 +156,7 @@
       },
       {
         "avatar": "🍣",
-        "quote": "\"Setup was shockingly fast. Wilfried had it live on our site in two days. Our staff stopped answering the same questions 30 times a day.\"",
+        "quote": "\"Setup was shockingly fast. Pro Fast AI had it live on our site in two days. Our staff stopped answering the same questions 30 times a day.\"",
         "name": "Jennifer L.",
         "role": "Manager, Sushi Bar — Newport Beach, CA"
       },
@@ -172,13 +172,13 @@
     "sectionLabel": "Get Started",
     "h2Line1": "30 days free.",
     "h2Em": "No credit card.",
-    "body": "Let me set up a custom AI assistant for your business — completely free for 30 days. If you don't love it, you owe nothing.",
+    "body": "We'll set up a custom AI assistant for your business — completely free for 30 days. If you don't love it, you owe nothing.",
     "primaryLabel": "Claim Your Free Trial",
     "secondaryLabel": "Book a 10-Min Call",
     "mailtoSubject": "Free Trial Request"
   },
   "footer": {
     "logo": "Pro Fast AI Solutions",
-    "copyright": "© 2026 Wilfried Lefebvre. All rights reserved."
+    "copyright": "© 2026 Pro Fast AI Solutions. All rights reserved."
   }
 }
