@@ -688,7 +688,7 @@
     <div id="pfai-window">
       <div class="pfai-header">
         <div class="pfai-title">Pro Fast AI Assistant</div>
-        <div class="pfai-sub">OpenAI + this page · Service businesses · Orange County, CA</div>
+        <div class="pfai-sub">Service businesses · Orange County, CA</div>
       </div>
       <div id="pfai-messages" class="pfai-messages"></div>
       <div class="pfai-quick">

@@ -72,7 +72,10 @@
       font-weight: 700; padding: 0 12px; cursor: pointer;
     }
     @media (max-width: 768px) {
-      #cdlc-demo-widget { right: 10px; bottom: 10px; }
+      #cdlc-demo-widget {
+        right: max(10px, env(safe-area-inset-right, 0px));
+        bottom: max(10px, env(safe-area-inset-bottom, 0px));
+      }
       #cdlc-demo-panel { width: min(340px, calc(100vw - 44px)); height: 390px; }
       #cdlc-demo-bubble { font-size: 12px; padding: 9px 12px; }
     }
