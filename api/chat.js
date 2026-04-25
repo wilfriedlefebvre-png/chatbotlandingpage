@@ -9,6 +9,11 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid messages format' });
   }
 
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) {
+    return res.status(500).json({ error: 'Missing OPENAI_API_KEY' });
+  }
+
   var SYSTEM_PROMPT = "You are Clementine, the warm and charming AI assistant for Creme de la Crepe. Help with locations, hours, menu, reservations, and catering. Be concise and friendly. If unsure, direct guests to call or visit the website.";
 
   try {
@@ -16,7 +21,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY
+        'Authorization': 'Bearer ' + apiKey
       },
       body: JSON.stringify({
         model: 'gpt-3.5-turbo',
