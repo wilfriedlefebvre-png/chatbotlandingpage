@@ -687,6 +687,10 @@
         height: min(340px, calc(100dvh - 118px));
       }
       #pfai-trigger { font-size: 12px; padding: 10px 13px; }
+      /* 16px+ avoids iOS Safari zooming the page when the input is auto-focused */
+      #pfai-input {
+        font-size: 16px;
+      }
     }
   `;
   document.head.appendChild(styles);
