@@ -76,10 +76,14 @@
       : 'From step 3 on this page: installation is one line of code. It works on Wix, Squarespace, WordPress, or any platform.';
 
     var demo = kb.demo || {};
+    var disclaimerFull =
+      demo.disclaimerParts && demo.disclaimerParts.length
+        ? demo.disclaimerParts.join('')
+        : 'The live demo below is a really basic bot — currently shown as a restaurant-style example. Your production bot is trained for your own business and industry.';
     var demoStr =
-      'From the Live Demo section: you can try the chat in that section on this page. The page states the live demo is currently a ' +
-      (demo.disclaimerParts && demo.disclaimerParts[1] ? demo.disclaimerParts[1] : 'restaurant') +
-      ' example; your production bot is trained for your own business and industry. Use "See It Live" in the hero or scroll to #demo.';
+      'From the Live Demo section: you can try the chat in that section on this page. The on-page disclaimer reads: ' +
+      disclaimerFull +
+      ' Use "See It Live" in the hero or scroll to #demo.';
 
     var tiers = (kb.pricing && kb.pricing.tiers) || [];
     var pricingBlocks = tiers.map(function (t) {
@@ -132,7 +136,7 @@
       (test.footnote || '');
 
     var help =
-      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (restaurant example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want us to collect your info for a follow-up.';
+      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (basic bot / restaurant-style example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want us to collect your info for a follow-up.';
 
     var st = tiers[1];
     var calendlyBooking = st
@@ -183,7 +187,7 @@
     platforms:
       'From step 3 on this page: installation is one line of code. It works on Wix, Squarespace, WordPress, or any platform. You do not need technical knowledge on your end.',
     demo:
-      'From the Live Demo section: you can try the chat in that section on this page. The page states the live demo is currently a restaurant example; your production bot is trained for your own business and industry. Use "See It Live" in the hero or scroll to #demo.',
+      'From the Live Demo section: you can try the chat in that section on this page. The on-page disclaimer reads: The live demo below is a really basic bot — currently shown as a restaurant-style example. Your production bot is trained for your own business and industry. Use "See It Live" in the hero or scroll to #demo.',
     pricingAll:
       'From the Pricing section — same numbers as on this page:\n\nStarter — $49/mo + $149 one-time setup. Includes: FAQ bot on your services & info; hours, location & contact; embed on your site; QR for print materials; email support.\n\nStandard (Most Popular) — $99/mo + $249 setup. Everything in Starter, plus appointment & booking integration; lead capture (name, email, phone); Calendly / booking calendar sync; weekly conversation report; priority email support.\n\nPro — $199/mo + $399 setup. Everything in Standard, plus monthly chatbot optimization; custom branding & tone; QR codes for lobby, tables & marketing; monthly performance report; priority phone & email support.',
     trial:
@@ -195,7 +199,7 @@
     testimonials:
       'The testimonials block is titled "Real results for real businesses" and shows three hospitality examples (Irvine, Newport Beach, Mission Viejo). The page also notes to replace with real testimonials when you have them.',
     help:
-      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (restaurant example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want us to collect your info for a follow-up.',
+      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (basic bot / restaurant-style example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want us to collect your info for a follow-up.',
     calendlyBooking:
       'From the Standard plan on this page: appointment & booking integration, Calendly / booking calendar sync, and lead capture (name, email, phone). Weekly conversation report and priority email support are also listed for Standard.',
     qrCodes:

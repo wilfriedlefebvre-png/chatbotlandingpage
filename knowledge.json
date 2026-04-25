@@ -78,9 +78,9 @@
     "h2Line1": "Try it yourself —",
     "h2Em": "right now",
     "disclaimerParts": [
-      "The live demo below is currently set up as a ",
-      "restaurant",
-      " example. Your production bot is trained for your own business and industry."
+      "The live demo below is a ",
+      "really basic bot",
+      " — currently shown as a restaurant-style example. Your production bot is trained for your own business and industry."
     ],
     "placeholderTitle": "Live demo chatbot",
     "placeholderBody": "Use the chat in this section to try a live conversation — the same style of experience your clients get on your site."
