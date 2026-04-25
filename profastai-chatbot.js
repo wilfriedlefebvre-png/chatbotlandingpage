@@ -675,8 +675,17 @@
       cursor: pointer;
     }
     @media (max-width: 640px) {
-      #pfai-shell { right: 10px; bottom: 10px; }
-      #pfai-window { height: 68vh; width: min(390px, calc(100vw - 20px)); }
+      #pfai-shell {
+        right: max(12px, env(safe-area-inset-right, 0px));
+        bottom: max(12px, env(safe-area-inset-bottom, 0px));
+      }
+      /* Short fixed cap + dynamic viewport so the panel is not most of the screen */
+      #pfai-window {
+        width: min(100%, calc(100vw - 20px));
+        max-width: 340px;
+        height: min(400px, calc(100vh - 128px));
+        height: min(400px, calc(100dvh - 128px));
+      }
       #pfai-trigger { font-size: 12px; padding: 10px 13px; }
     }
   `;
