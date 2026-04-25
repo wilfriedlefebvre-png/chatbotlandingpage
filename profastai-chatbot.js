@@ -18,13 +18,13 @@
 
   var FAQ = {
     offer:
-      'Pro Fast AI is an AI receptionist for restaurants. It answers customers 24/7, books reservations, and captures leads automatically so you do not miss after-hours revenue.',
+      'Pro Fast AI builds custom AI assistants for service businesses — restaurants, medical, dental, med spas, and more. Your bot answers inquiries 24/7, qualifies leads, books appointments, and captures details so you do not miss after-hours revenue.',
     stats:
-      'Current offer highlights: 24/7 answering, $0 to get started, setup in about 2 hours, and 80%+ of common questions handled automatically.',
+      'Highlights: 24/7 answering, $0 to get started, setup in about 2 hours, and 80%+ of common questions handled automatically.',
     setup:
-      'How it works: (1) you share menu/hours/FAQ/booking policy, (2) we build your custom bot, (3) it is embedded on your site, (4) it handles customer questions while you sleep. Typical go-live is within 48 hours.',
+      'How it works: (1) you share services, hours, FAQs, and booking rules, (2) we build your custom bot, (3) it is embedded on your site, (4) it handles client questions while you sleep. Typical go-live is within 48 hours.',
     pricing:
-      'Pricing: Starter is $49/mo + $149 setup. Standard is $99/mo + $249 setup (most popular, includes reservation integration and lead capture). Pro is $199/mo + $399 setup (includes monthly optimization and performance reporting).',
+      'Pricing: Starter is $49/mo + $149 setup. Standard is $99/mo + $249 setup (most popular, includes appointment/booking integration and lead capture). Pro is $199/mo + $399 setup (includes monthly optimization and performance reporting).',
     trial:
       'You get 30 days free with no credit card required. If you do not love it, you owe nothing.',
     support:
@@ -32,7 +32,7 @@
     contact:
       'Contact Pro Fast AI: Wilfried.lefebvre@gmail.com or +1 (424) 206-8097. Service area: Orange County, CA.',
     testimonials:
-      'Client examples on the page report fewer missed after-hours calls, fewer repetitive staff interruptions, and new reservations captured while off-shift.'
+      'Case studies on the site include hospitality clients who report fewer missed after-hours inquiries, less repetitive work for staff, and more bookings captured while they are off the clock.'
   };
 
   function addTranscript(role, text) {
@@ -72,7 +72,7 @@
     var summary = [
       'Lead captured:',
       '- Name: ' + state.lead.name,
-      '- Restaurant: ' + state.lead.business,
+      '- Business: ' + state.lead.business,
       '- Email: ' + state.lead.email,
       '- Phone: ' + state.lead.phone,
       '- Monthly inquiry volume: ' + state.lead.volume
@@ -86,7 +86,7 @@
         'New lead captured from website chatbot:',
         '',
         'Name: ' + state.lead.name,
-        'Restaurant: ' + state.lead.business,
+        'Business: ' + state.lead.business,
         'Email: ' + state.lead.email,
         'Phone: ' + state.lead.phone,
         'Monthly inquiry volume: ' + state.lead.volume,
@@ -107,7 +107,7 @@
     if (state.mode === 'lead_name') {
       state.lead.name = value;
       state.mode = 'lead_business';
-      addMessage(messagesEl, 'bot', 'Thanks, ' + value + '. What is your restaurant name?');
+      addMessage(messagesEl, 'bot', 'Thanks, ' + value + '. What is your business name?');
       return;
     }
     if (state.mode === 'lead_business') {
@@ -161,7 +161,7 @@
       return;
     }
 
-    if (lower.includes('what is profast') || lower.includes('what do you do') || lower.includes('ai receptionist')) {
+    if (lower.includes('what is profast') || lower.includes('what do you do') || lower.includes('ai receptionist') || lower.includes('ai assistant')) {
       addMessage(messagesEl, 'bot', FAQ.offer);
       return;
     }
@@ -205,7 +205,7 @@
     addMessage(
       messagesEl,
       'bot',
-      'I can answer anything from the Pro Fast AI page: offer, how it works, pricing, trial terms, support, contact, and proof points. If you want, I can collect your info now and schedule a follow-up.'
+      'I can answer questions about Pro Fast AI for service businesses: what we do, how setup works, pricing, trial terms, support, and contact. Type "start free trial" if you want me to collect your details for a follow-up.'
     );
   }
 
@@ -334,7 +334,7 @@
     <div id="pfai-window">
       <div class="pfai-header">
         <div class="pfai-title">Pro Fast AI Assistant</div>
-        <div class="pfai-sub">Professional support + lead qualification</div>
+        <div class="pfai-sub">Service businesses · Orange County, CA</div>
       </div>
       <div id="pfai-messages" class="pfai-messages"></div>
       <div class="pfai-quick">
@@ -368,7 +368,7 @@
       addMessage(
         messagesEl,
         'bot',
-        'Welcome. I am the Pro Fast AI assistant. I can answer questions from this page about how it works, pricing, free trial terms, support, and contact. Type "start free trial" any time to begin lead capture.'
+        'Welcome. I am the Pro Fast AI assistant for service businesses. Ask about 24/7 replies, lead capture, booking, pricing, or our 30-day trial. Type "start free trial" any time to share your details for a follow-up.'
       );
     }
     inputEl.focus();
