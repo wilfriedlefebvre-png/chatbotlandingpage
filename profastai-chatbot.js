@@ -47,7 +47,7 @@
     var heroStats = 'From the hero stats on this page:\n' + heroLines.join('\n');
 
     var offer =
-      'From this page: Pro Fast AI is an AI assistant for Orange County service businesses. Headline promise: "' +
+      'From this page: Pro Fast AI is an AI agent for Orange County businesses. Headline promise: "' +
       h.h1Line1 +
       ' ' +
       h.h1Em +
@@ -58,10 +58,16 @@
     var painSummaries = (p.cards || []).map(function (c) {
       return c.title.toLowerCase().replace(/\.$/, '');
     });
+    var problemSectionTitle = p.sectionLabel || 'The Problem';
+    var problemHead = (p.h2Line1 || '').trim() + ' ' + (p.h2Em || '').trim();
     var problem =
-      'From "The Problem" section: clients reach out but nobody answers fast enough. The page lists four pains: ' +
+      'From "' +
+      problemSectionTitle +
+      '" section' +
+      (problemHead ? ': ' + problemHead.trim() + '.' : '.') +
+      ' The page lists four pains: ' +
       painSummaries.join('; ') +
-      ', in line with the cards on this page.';
+      ', matching the cards on this page.';
 
     var hiw = kb.howItWorks || {};
     var steps = hiw.steps || [];
@@ -104,7 +110,7 @@
     var pricingAll = 'From the Pricing section — same numbers as on this page:\n\n' + pricingBlocks.join('\n\n');
 
     var trial =
-      'From the page: 30 days free, no credit card. If you do not love it, you owe nothing. CTA: we set up a custom AI assistant for your business free for 30 days.';
+      'From the page: 30 days free, no credit card. If you do not love it, you owe nothing. CTA: we set up a custom AI agent for your business free for 30 days.';
 
     var support =
       'Taken from the plan bullets on this page: Starter includes email support. Standard adds priority email support. Pro adds priority phone and email support.';
@@ -177,11 +183,11 @@
 
   var FALLBACK_SITE = {
     offer:
-      'From this page: Pro Fast AI is an AI assistant for Orange County service businesses. Headline promise: "Your AI Agent, Always On." It answers inquiries 24/7, qualifies leads, books appointments, and captures revenue automatically — fast replies, fewer missed opportunities.',
+      'From this page: Pro Fast AI is an AI agent for Orange County businesses. Headline promise: "Your AI Agent, Always On." An AI agent on your website that answers questions, qualifies leads, and books appointments 24/7 — so you focus on running your business.',
     heroStats:
-      'From the hero stats on this page:\n• 24/7 — Always answering\n• $0 — To get started\n• 2hr — Setup time\n• 80%+ — Questions handled',
+      'From the hero stats on this page:\n• 24/7 — Instant replies\n• $0 — To get started\n• 2hr — Setup time\n• 80%+ — Questions handled',
     problem:
-      'From "The Problem" section: clients reach out but nobody answers fast enough. The page lists four pains: missed calls after hours; the same questions every day (hours, pricing, insurance, services, parking); bookings that never happen without a simple path; and lost leads every night when messages go unanswered.',
+      'From "Why Businesses Need an AI Agent" section: No AI agent = lost revenue, daily. The page lists four pains: questions go unanswered 24/7; same questions, every day; bookings that never happen; lost leads every night — matching the cards on this page.',
     howItWorks:
       'From "How It Works" — live on your site in 48 hours:\n1) You share business info: services, hours, location, FAQs, booking policy, and what the bot should qualify. A 15-minute call or a quick email.\n2) We build your custom bot — trained on your business, in your tone.\n3) One line of code on your site — works on Wix, Squarespace, WordPress, or any platform; no technical knowledge needed.\n4) It works while you sleep — clients can chat and book at 2am; you wake up to leads and bookings in inbox or calendar.',
     platforms:
@@ -191,7 +197,7 @@
     pricingAll:
       'From the Pricing section — same numbers as on this page:\n\nStarter — $49/mo + $149 one-time setup. Includes: FAQ bot on your services & info; hours, location & contact; embed on your site; QR for print materials; email support.\n\nStandard (Most Popular) — $99/mo + $249 setup. Everything in Starter, plus appointment & booking integration; lead capture (name, email, phone); Calendly / booking calendar sync; weekly conversation report; priority email support.\n\nPro — $199/mo + $399 setup. Everything in Standard, plus monthly chatbot optimization; custom branding & tone; QR codes for lobby, tables & marketing; monthly performance report; priority phone & email support.',
     trial:
-      'From the page: 30 days free, no credit card. If you do not love it, you owe nothing. CTA: we set up a custom AI assistant for your business free for 30 days.',
+      'From the page: 30 days free, no credit card. If you do not love it, you owe nothing. CTA: we set up a custom AI agent for your business free for 30 days.',
     support:
       'Taken from the plan bullets on this page: Starter includes email support. Standard adds priority email support. Pro adds priority phone and email support.',
     contact:

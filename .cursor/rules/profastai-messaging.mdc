@@ -1,0 +1,19 @@
+---
+description: Pro Fast AI landing — keep hero→problem messaging one consistent spine
+globs: knowledge.json,profastai-chatbot.js,index.html
+alwaysApply: false
+---
+
+# Pro Fast AI copy spine (hero → problem)
+
+When editing marketing copy, keep this **top-to-bottom flow** aligned (source of truth: `knowledge.json`; mirror in `profastai-chatbot.js` `buildSite` + `FALLBACK_SITE` when that file hardcodes strings).
+
+1. **Badge** — OC local proof (e.g. serving Orange County businesses).
+2. **H1** — `Your AI Agent,` + emphasized `Always On.` (two-line hero).
+3. **Subtitle** — Website AI agent that **answers**, **qualifies**, **books**, **24/7**; closes with focusing on running the business.
+4. **Problem section label** — `Why Businesses Need an AI Agent` (not generic “The Problem” unless intentionally reverting).
+5. **Problem H2** — `No AI agent = lost revenue,` + emphasized `daily`.
+
+**Problem cards** stay concrete pain points; do not rewrite them unless the user asks.
+
+**Terminology:** Prefer **AI agent** (not “assistant”) for Pro Fast AI product positioning in hero, problem framing, CTAs, and chatbot page knowledge.

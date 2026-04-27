@@ -1,6 +1,6 @@
 {
   "meta": {
-    "pageTitle": "Pro Fast AI — AI Assistant for Service Businesses"
+    "pageTitle": "Pro Fast AI — AI Agent for Service Businesses"
   },
   "contact": {
     "email": "profastai@gmail.com",
@@ -10,10 +10,10 @@
     "portfolioUrl": "https://portfolio-will-projects.vercel.app/"
   },
   "hero": {
-    "badge": "Now serving Orange County service businesses",
+    "badge": "Serving Orange County businesses",
     "h1Line1": "Your AI Agent,",
     "h1Em": "Always On.",
-    "subtitle": "An AI agent on your website that answers questions instantly, qualifies leads, and books appointments around the clock — so you focus on running your business.",
+    "subtitle": "An AI agent on your website that answers questions, qualifies leads, and books appointments 24/7 — so you focus on running your business.",
     "ctaPrimary": "Start Free 30 Days",
     "ctaSecondary": "See It Live →",
     "stats": [
@@ -24,9 +24,9 @@
     ]
   },
   "problem": {
-    "sectionLabel": "The Problem",
-    "h2Line1": "Clients reach out. Nobody",
-    "h2Em": "answers fast enough.",
+    "sectionLabel": "Why Businesses Need an AI Agent",
+    "h2Line1": "No AI agent = lost revenue,",
+    "h2Em": "daily",
     "cards": [
       {
         "icon": "📞",
@@ -172,7 +172,7 @@
     "sectionLabel": "Get Started",
     "h2Line1": "30 days free.",
     "h2Em": "No credit card.",
-    "body": "We'll set up a custom AI assistant for your business — completely free for 30 days. If you don't love it, you owe nothing.",
+    "body": "We'll set up a custom AI agent for your business — completely free for 30 days. If you don't love it, you owe nothing.",
     "primaryLabel": "Claim Your Free Trial",
     "secondaryLabel": "Book a 10-Min Call",
     "mailtoSubject": "Free Trial Request"
