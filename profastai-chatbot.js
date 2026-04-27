@@ -177,7 +177,7 @@
 
   var FALLBACK_SITE = {
     offer:
-      'From this page: Pro Fast AI is an AI assistant for Orange County service businesses. Headline promise: "Never Miss a Client Again." It answers inquiries 24/7, qualifies leads, books appointments, and captures revenue automatically — fast replies, fewer missed opportunities.',
+      'From this page: Pro Fast AI is an AI assistant for Orange County service businesses. Headline promise: "Your AI Agent, Always On." It answers inquiries 24/7, qualifies leads, books appointments, and captures revenue automatically — fast replies, fewer missed opportunities.',
     heroStats:
       'From the hero stats on this page:\n• 24/7 — Always answering\n• $0 — To get started\n• 2hr — Setup time\n• 80%+ — Questions handled',
     problem:

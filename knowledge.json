@@ -11,13 +11,13 @@
   },
   "hero": {
     "badge": "Now serving Orange County service businesses",
-    "h1Line1": "Never Miss a Client",
-    "h1Em": "Again",
-    "subtitle": "An AI assistant that answers inquiries 24/7, qualifies leads, books appointments, and captures revenue — automatically. Fast replies. No missed opportunities.",
+    "h1Line1": "Your AI Agent,",
+    "h1Em": "Always On.",
+    "subtitle": "An AI agent on your website that answers questions instantly, qualifies leads, and books appointments around the clock — so you focus on running your business.",
     "ctaPrimary": "Start Free 30 Days",
     "ctaSecondary": "See It Live →",
     "stats": [
-      { "num": "24/7", "label": "Always answering" },
+      { "num": "24/7", "label": "Instant replies" },
       { "num": "$0", "label": "To get started" },
       { "num": "2hr", "label": "Setup time" },
       { "num": "80%+", "label": "Questions handled" }
@@ -30,8 +30,8 @@
     "cards": [
       {
         "icon": "📞",
-        "title": "Missed calls after hours",
-        "body": "People call evenings and weekends with real questions. If nobody picks up, they move on to the next business on their list."
+        "title": "Questions go unanswered 24/7",
+        "body": "Customers visit your website at night, on weekends, and between calls — ready to book or buy. If your site can't answer them instantly, they close the tab and go to your competitor."
       },
       {
         "icon": "💬",
