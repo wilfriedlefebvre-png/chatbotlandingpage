@@ -47,7 +47,7 @@
     var heroStats = 'From the hero stats on this page:\n' + heroLines.join('\n');
 
     var offer =
-      'From this page: Pro Fast AI is an AI agent for Orange County businesses. Headline promise: "' +
+      'From this page: Pro Fast AI is an AI agent for service businesses. Headline promise: "' +
       h.h1Line1 +
       ' ' +
       h.h1Em +
@@ -183,7 +183,7 @@
 
   var FALLBACK_SITE = {
     offer:
-      'From this page: Pro Fast AI is an AI agent for Orange County businesses. Headline promise: "Your AI Agent, Always On." An AI agent on your website that answers questions, qualifies leads, and books appointments 24/7 — so you focus on running your business.',
+      'From this page: Pro Fast AI is an AI agent for service businesses. Headline promise: "Your AI Agent, Always On." An AI agent on your website that answers questions, qualifies leads, and books appointments 24/7 — so you focus on running your business.',
     heroStats:
       'From the hero stats on this page:\n• 24/7 — Instant replies\n• $0 — To get started\n• 2hr — Setup time\n• 80%+ — Questions handled',
     problem:
@@ -195,7 +195,7 @@
     demo:
       'From the Live Demo section: you can try the chat in that section on this page. The on-page disclaimer reads: The live demo below is a really basic AI agent — currently shown as a restaurant-style example. Your production AI agent is trained for your own business and industry. Use "See It Live" in the hero or scroll to #demo.',
     pricingAll:
-      'From the Pricing section — same numbers as on this page:\n\nStarter — $49/mo + $149 one-time setup. Includes: AI agent trained on your services & FAQs; hours, location & contact; embed on your site; QR for print materials; email support.\n\nStandard (Most Popular) — $99/mo + $249 setup. Everything in Starter, plus appointment & booking integration; lead capture (name, email, phone); Calendly / booking calendar sync; weekly conversation report; priority email support.\n\nPro — $199/mo + $399 setup. Everything in Standard, plus monthly AI agent optimization; custom branding & tone; QR codes for lobby, tables & marketing; monthly performance report; priority phone & email support.',
+      'From the Pricing section — same numbers as on this page:\n\nStarter — $79/mo + $149 one-time setup. Includes: AI agent trained on your services & FAQs; hours, location & contact; embed on your site; QR for print materials; email support.\n\nStandard (Most Popular) — $129/mo + $249 setup. Everything in Starter, plus appointment & booking integration; lead capture (name, email, phone); Calendly / booking calendar sync; weekly conversation report; priority email support.\n\nPro — $299/mo + $399 setup. Everything in Standard, plus monthly AI agent optimization; custom branding & tone; QR codes for lobby, tables & marketing; monthly performance report; priority phone & email support.',
     trial:
       'From the page: 30 days free, no credit card. If you do not love it, you owe nothing. CTA: we set up a custom AI agent for your business free for 30 days.',
     support:
@@ -368,7 +368,7 @@
       return SITE.pricingAll;
     }
 
-    if (lower.includes('price') || lower.includes('pricing') || lower.includes('cost') || lower.includes('how much') || lower.includes('$49') || lower.includes('$99') || lower.includes('$199')) {
+    if (lower.includes('price') || lower.includes('pricing') || lower.includes('cost') || lower.includes('how much') || lower.includes('$79') || lower.includes('$129') || lower.includes('$299')) {
       return SITE.pricingAll;
     }
 

@@ -93,7 +93,7 @@
       {
         "id": "starter",
         "name": "Starter",
-        "priceAmount": "$49",
+        "priceAmount": "$79",
         "priceSuffix": "/mo",
         "setup": "+ $149 one-time setup fee",
         "featured": false,
@@ -109,7 +109,7 @@
       {
         "id": "standard",
         "name": "Standard",
-        "priceAmount": "$99",
+        "priceAmount": "$129",
         "priceSuffix": "/mo",
         "setup": "+ $249 one-time setup fee",
         "featured": true,
@@ -126,7 +126,7 @@
       {
         "id": "pro",
         "name": "Pro",
-        "priceAmount": "$199",
+        "priceAmount": "$299",
         "priceSuffix": "/mo",
         "setup": "+ $399 one-time setup fee",
         "featured": false,
@@ -162,7 +162,7 @@
       },
       {
         "avatar": "🥩",
-        "quote": "\"I was skeptical at first — $99 a month felt like a lot. Then I saw it book 11 reservations in one weekend while I was at a family event. Never looking back.\"",
+        "quote": "\"I was skeptical at first — $129 a month felt like a lot. Then I saw it book 11 reservations in one weekend while I was at a family event. Never looking back.\"",
         "name": "David K.",
         "role": "Owner, Steakhouse — Mission Viejo, CA"
       }
