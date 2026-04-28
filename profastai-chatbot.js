@@ -201,7 +201,7 @@
     support:
       'Taken from the plan bullets on this page: Starter includes email support. Standard adds priority email support. Pro adds priority phone and email support.',
     contact:
-      'From the footer and CTA on this page:\n• Email: profastai@gmail.com\n• Phone: +1 (424) 206-8097\n• Serving Orange County, CA\n• Portfolio link is in the site footer.',
+      'From the footer and CTA on this page:\n• Email: profastai@gmail.com\n• Phone: +1 (424) 206-8097\n• Serving businesses across the U.S.\n• Portfolio link is in the site footer.',
     testimonials:
       'The testimonials block is titled "Real results for real businesses" and shows three hospitality examples (Irvine, Newport Beach, Mission Viejo). The page also notes to replace with real testimonials when you have them.',
     help:
@@ -707,7 +707,7 @@
     <div id="pfai-window">
       <div class="pfai-header">
         <div class="pfai-title">Pro Fast AI Assistant</div>
-        <div class="pfai-sub">Service businesses · Orange County, CA</div>
+        <div class="pfai-sub">Service businesses · U.S.</div>
       </div>
       <div id="pfai-messages" class="pfai-messages"></div>
       <div class="pfai-quick">

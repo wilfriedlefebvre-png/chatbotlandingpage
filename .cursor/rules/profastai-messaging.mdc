@@ -8,7 +8,7 @@ alwaysApply: false
 
 When editing marketing copy, keep this **top-to-bottom flow** aligned (source of truth: `knowledge.json`; mirror in `profastai-chatbot.js` `buildSite` + `FALLBACK_SITE` when that file hardcodes strings).
 
-1. **Badge** — OC local proof (e.g. serving Orange County businesses).
+1. **Badge** — Short credibility line (e.g. built for service businesses); keep geography accurate if you add a real region.
 2. **H1** — `Your AI Agent,` + emphasized `Always On.` (two-line hero).
 3. **Subtitle** — Website AI agent that **answers**, **qualifies**, **books**, **24/7**; closes with focusing on running the business.
 4. **Problem section label** — `Why Businesses Need an AI Agent` (not generic “The Problem” unless intentionally reverting).

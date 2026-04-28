@@ -194,7 +194,7 @@
       return 'Call us at +1 (424) 206-8097 or email profastai@gmail.com and we will help right away.';
     }
     if (lower.includes('location') || lower.includes('address')) {
-      return 'We serve Orange County. Tell me your city and I can guide you to the nearest location.';
+      return 'Tell me your city and I can guide you to the nearest location.';
     }
     return 'Happy to help. You can ask about menu, reservations, catering, locations, and contact details.';
   }
