@@ -125,21 +125,8 @@
       (c.region || '') +
       '\n• Portfolio link is in the site footer.';
 
-    var test = kb.testimonials || {};
-    var roles = (test.items || []).map(function (it) {
-      var r = it.role || '';
-      var parts = r.split('—');
-      return parts.length > 1 ? parts[parts.length - 1].trim() : r;
-    });
     var testimonials =
-      'The testimonials block is titled "' +
-      test.h2Line1 +
-      ' ' +
-      test.h2Em +
-      '" and shows three hospitality examples (' +
-      roles.join(', ') +
-      '). ' +
-      (test.footnote || '');
+      'Above Get Started, the page shows a single line (no review cards or star ratings): "See it before you decide — we build a live demo for your business before you pay anything."';
 
     var help =
       'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (basic AI agent / restaurant-style example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want us to collect your info for a follow-up.';
@@ -203,7 +190,7 @@
     contact:
       'From the footer and CTA on this page:\n• Email: profastai@gmail.com\n• Phone: +1 (424) 206-8097\n• Serving businesses across the U.S.\n• Portfolio link is in the site footer.',
     testimonials:
-      'The testimonials block is titled "Real results for real businesses" and shows three hospitality examples (Irvine, Newport Beach, Mission Viejo). The page also notes to replace with real testimonials when you have them.',
+      'Above Get Started, the page shows a single line (no review cards or star ratings): "See it before you decide — we build a live demo for your business before you pay anything."',
     help:
       'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (basic AI agent / restaurant-style example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want us to collect your info for a follow-up.',
     calendlyBooking:
