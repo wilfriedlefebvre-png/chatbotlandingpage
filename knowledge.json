@@ -169,11 +169,11 @@
     ]
   },
   "cta": {
-    "sectionLabel": "Get Started",
-    "h2Line1": "30 days free.",
-    "h2Em": "No credit card.",
-    "body": "We'll set up a custom AI agent for your business — completely free for 30 days. If you don't love it, you owe nothing.",
-    "primaryLabel": "Claim Your Free Trial",
+    "sectionLabel": "",
+    "h2Line1": "Get Started",
+    "h2Em": "30 days free. Cancel anytime.",
+    "body": "We'll set up a custom AI agent for your business — completely free for 30 days. Your card won't be charged until day 31. Cancel before then and you owe nothing.",
+    "primaryLabel": "Start Your Free Trial",
     "secondaryLabel": "Book a 10-Min Call",
     "mailtoSubject": "Free Trial Request"
   },

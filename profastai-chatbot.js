@@ -110,7 +110,7 @@
     var pricingAll = 'From the Pricing section — same numbers as on this page:\n\n' + pricingBlocks.join('\n\n');
 
     var trial =
-      'From the page: 30 days free, no credit card. If you do not love it, you owe nothing. CTA: we set up a custom AI agent for your business free for 30 days.';
+      'From the page: 30 days free. Cancel anytime. We set up a custom AI agent for your business — completely free for 30 days. Your card will not be charged until day 31. Cancel before then and you owe nothing. Primary CTA: Start Your Free Trial.';
 
     var support =
       'Taken from the plan bullets on this page: Starter includes email support. Standard adds priority email support. Pro adds priority phone and email support.';
@@ -197,7 +197,7 @@
     pricingAll:
       'From the Pricing section — same numbers as on this page:\n\nStarter — $79/mo + $149 one-time setup. Includes: AI agent trained on your services & FAQs; hours, location & contact; embed on your site; QR for print materials; email support.\n\nStandard (Most Popular) — $129/mo + $249 setup. Everything in Starter, plus appointment & booking integration; lead capture (name, email, phone); Calendly / booking calendar sync; weekly conversation report; priority email support.\n\nPro — $299/mo + $399 setup. Everything in Standard, plus monthly AI agent optimization; custom branding & tone; QR codes for lobby, tables & marketing; monthly performance report; priority phone & email support.',
     trial:
-      'From the page: 30 days free, no credit card. If you do not love it, you owe nothing. CTA: we set up a custom AI agent for your business free for 30 days.',
+      'From the page: 30 days free. Cancel anytime. We set up a custom AI agent for your business — completely free for 30 days. Your card will not be charged until day 31. Cancel before then and you owe nothing. Primary CTA: Start Your Free Trial.',
     support:
       'Taken from the plan bullets on this page: Starter includes email support. Standard adds priority email support. Pro adds priority phone and email support.',
     contact:
