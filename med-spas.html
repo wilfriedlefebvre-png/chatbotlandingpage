@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>See it in action — AI for Med Spas | Pro Fast AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600;1,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #131310;
+      --bg-card: #1a1a17;
+      --border: #2c2c26;
+      --text: #f5f0e8;
+      --muted: #aaa08c;
+      --gold: #c9a84c;
+      --gold-deep: #a07830;
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+
+    .topbar {
+      text-align: center;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .topbar a:hover { text-decoration: underline; }
+
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 96px 24px 88px; }
+    .hero { text-align: center; margin-bottom: 76px; }
+    .kicker {
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.14;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    h1 em {
+      color: var(--gold);
+      font-style: italic;
+      font-weight: 700;
+    }
+    .sub {
+      max-width: 760px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+      color: #17150f;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 10px;
+      border: 0;
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+    .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.04); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 72px;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--gold);
+      border-radius: 14px;
+      padding: 22px;
+    }
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+    }
+    .card p { color: var(--muted); font-size: 14px; }
+
+    .section {
+      margin-bottom: 76px;
+      border: 1px solid var(--border);
+      background: #151512;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .section-head {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      background: #171713;
+    }
+    .section-head h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .section-head h2 em { color: var(--gold); font-style: italic; }
+    .rows { padding: 24px; display: grid; gap: 16px; }
+    .row {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      background: #11110f;
+    }
+    .row strong {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .row p { color: var(--text); font-size: 15px; }
+
+    .cta {
+      text-align: center;
+      border: 1px solid var(--border);
+      background: #171713;
+      border-radius: 16px;
+      padding: 34px 24px;
+    }
+    .cta h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      margin-bottom: 10px;
+    }
+    .cta h3 em { color: var(--gold); font-style: italic; }
+    .cta p {
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 20px;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .wrap { padding-top: 72px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a href="index.html">← Back to Pro Fast AI</a>
+  </div>
+
+  <main class="wrap">
+    <section class="hero">
+      <span class="kicker">Med Spas / Aesthetic Clinics</span>
+      <h1>Your AI front desk,<br /><em>always on.</em></h1>
+      <p class="sub">
+        Website visitors ask about treatments, pricing, downtime, and availability at all hours.
+        Your AI agent answers instantly, qualifies leads, and books consults while your team stays focused on in-clinic care.
+      </p>
+      <div class="hero-actions">
+        <a href="index.html#pricing" class="btn-primary">Start Free Trial</a>
+        <a href="index.html#demo" class="btn-secondary">See Live Demo</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h3>After-hours lead capture</h3>
+        <p>New leads are answered at night and on weekends instead of bouncing to another clinic.</p>
+      </article>
+      <article class="card">
+        <h3>Consult-ready intake</h3>
+        <p>The AI agent gathers treatment interest, timeline, and contact details before handoff.</p>
+      </article>
+      <article class="card">
+        <h3>Faster booking flow</h3>
+        <p>Visitors move from question to consult booking in one clean conversation.</p>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>What your AI agent handles for <em>med spas</em></h2>
+      </div>
+      <div class="rows">
+        <div class="row">
+          <strong>Treatments & FAQs</strong>
+          <p>Answers common questions about injectables, skin treatments, recovery windows, and prep instructions.</p>
+        </div>
+        <div class="row">
+          <strong>Pricing & qualification</strong>
+          <p>Shares your pricing framework, gathers goals/budget context, and qualifies serious inquiries.</p>
+        </div>
+        <div class="row">
+          <strong>Consult booking</strong>
+          <p>Guides visitors to your calendar and captures lead details so no inquiry gets lost.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h3>Turn website traffic into booked consults, <em>24/7</em></h3>
+      <p>
+        Built for med spas and aesthetic clinics that want faster replies, better lead quality,
+        and more consistent bookings without adding front-desk workload.
+      </p>
+      <a href="index.html#contact" class="btn-primary">Talk to Pro Fast AI</a>
+    </section>
+  </main>
+</body>
+</html>

@@ -155,6 +155,71 @@
     }
     .stat-label { font-size: 0.8rem; color: var(--gray); margin-top: 4px; letter-spacing: 0.05em; text-transform: uppercase; }
 
+    /* INDUSTRIES */
+    .industries {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding-top: 72px;
+      padding-bottom: 72px;
+    }
+    .industries-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .industry-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .industry-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .industry-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25);
+    }
+    .industry-kicker {
+      color: var(--gold);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .industry-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .industry-card p {
+      color: var(--gray);
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+    }
+    .industry-link {
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -549,6 +614,7 @@
       }
       .hero-stats { gap: 20px 28px; }
       .stat { min-width: 40%; }
+      .industries-grid { grid-template-columns: 1fr; }
       .hero-actions {
         flex-direction: column;
         align-items: stretch;
@@ -640,7 +706,9 @@
   <div class="nav-logo">Pro Fast AI</div>
   <ul class="nav-links">
     <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#industries">Industries</a></li>
     <li><a href="see-it-work.html" target="_blank" rel="noopener noreferrer">Restaurants</a></li>
+    <li><a href="med-spas.html" target="_blank" rel="noopener noreferrer">Med Spas</a></li>
     <li><a href="#demo">Demo</a></li>
     <li><a href="faq.html" target="_blank" rel="noopener noreferrer">FAQ</a></li>
     <li><a href="#pricing">Pricing</a></li>
@@ -679,6 +747,28 @@
   </div>
 </section>
 
+<!-- INDUSTRIES -->
+<section class="industries" id="industries">
+  <div class="container">
+    <div class="section-label">Industries</div>
+    <h2>Built for high-intent businesses that need replies <em>right now</em></h2>
+    <div class="industries-grid">
+      <a class="industry-card" href="see-it-work.html" target="_blank" rel="noopener noreferrer">
+        <div class="industry-kicker">Hospitality</div>
+        <h3>Restaurants</h3>
+        <p>Handle menu questions, reservations, and private event inquiries 24/7 without phone tag.</p>
+        <span class="industry-link">View restaurant examples →</span>
+      </a>
+      <a class="industry-card" href="med-spas.html" target="_blank" rel="noopener noreferrer">
+        <div class="industry-kicker">Aesthetics</div>
+        <h3>Med Spas</h3>
+        <p>Answer treatment questions, qualify leads, and move visitors to consult bookings around the clock.</p>
+        <span class="industry-link">View med spa examples →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- PROBLEM -->
 <section class="problem">
   <div class="container">
@@ -686,7 +776,7 @@
     <h2><span data-kb="problem.h2Line1"></span><br /><em data-kb="problem.h2Em"></em></h2>
     <div class="problem-grid">
       <div class="problem-card">
-        <div class="problem-icon" data-kb="problem.cards.0.icon"></div>
+        <div class="problem-icon" data-kb="problem.cards.0.icon">⏰</div>
         <h3 data-kb="problem.cards.0.title"></h3>
         <p data-kb="problem.cards.0.body"></p>
       </div>
@@ -889,13 +979,13 @@
 
     var botConfig = {
       name: 'Pro Fast AI Assistant',
-      hours: 'Example hours vary by business. Your bot answers with the hours you provide.',
+      hours: 'Example hours vary by business. Your AI agent answers with the hours you provide.',
       location: 'We serve Orange County, CA. For bookings or custom setup, contact us by email or phone.',
       phone: '+1 (424) 206-8097',
       email: 'profastai@gmail.com',
       booking: 'For appointment requests, share preferred date, time, and contact details so we can follow up quickly.',
-      parking: 'Parking and access details can be included in your FAQ so the bot answers consistently.',
-      menu: 'Services, pricing ranges, and policies can all be answered once your business info is added to the bot.'
+      parking: 'Parking and access details can be included in your FAQ so the AI agent answers consistently.',
+      menu: 'Services, pricing ranges, and policies can all be answered once your business info is added to the AI agent.'
     };
     var flowState = {
       mode: 'normal',
@@ -918,7 +1008,7 @@
       row.appendChild(bubble);
       messagesEl.appendChild(row);
       messagesEl.scrollTop = messagesEl.scrollHeight;
-      transcript.push('[' + timestamp() + '] ' + (role === 'bot' ? 'Bot' : 'Visitor') + ': ' + text);
+      transcript.push('[' + timestamp() + '] ' + (role === 'bot' ? 'Agent' : 'Visitor') + ': ' + text);
     }
 
     function isValidEmail(value) {
@@ -1059,7 +1149,7 @@
       }, 350);
     }
 
-    addMessage('bot', 'Welcome. I am your AI assistant. Ask about hours, appointments, services, policies, parking, or contact.');
+    addMessage('bot', 'Welcome. I am your AI agent. Ask about hours, appointments, services, policies, parking, or contact.');
 
     formEl.addEventListener('submit', function (event) {
       event.preventDefault();

@@ -29,7 +29,7 @@
     "h2Em": "daily",
     "cards": [
       {
-        "icon": "📞",
+        "icon": "⏰",
         "title": "Questions go unanswered 24/7",
         "body": "Customers visit your website at night, on weekends, and between calls — ready to book or buy. If your site can't answer them instantly, they close the tab and go to your competitor."
       },
@@ -57,10 +57,10 @@
     "steps": [
       {
         "title": "You share your business info",
-        "body": "Services, hours, location, FAQs, booking policy, and what you want the bot to qualify. A 15-minute call or a quick email. That's it."
+        "body": "Services, hours, location, FAQs, booking policy, and what you want the AI agent to qualify. A 15-minute call or a quick email. That's it."
       },
       {
-        "title": "We build your custom AI bot",
+        "title": "We build your custom AI agent",
         "body": "Trained on your specific business. Answers in your tone. Handles your most common questions automatically."
       },
       {
@@ -79,10 +79,10 @@
     "h2Em": "right now",
     "disclaimerParts": [
       "The live demo below is a ",
-      "really basic bot",
-      " — currently shown as a restaurant-style example. Your production bot is trained for your own business and industry."
+      "really basic AI agent",
+      " — currently shown as a restaurant-style example. Your production AI agent is trained for your own business and industry."
     ],
-    "placeholderTitle": "Live demo chatbot",
+    "placeholderTitle": "Live demo AI agent",
     "placeholderBody": "Use the chat in this section to try a live conversation — the same style of experience your clients get on your site."
   },
   "pricing": {
@@ -99,7 +99,7 @@
         "featured": false,
         "badge": null,
         "features": [
-          "FAQ bot trained on your services & info",
+          "AI agent trained on your services & FAQs",
           "Hours, location & contact answers",
           "Embedded on your website",
           "QR code for print materials",
@@ -133,7 +133,7 @@
         "badge": null,
         "features": [
           "Everything in Standard",
-          "Monthly chatbot optimization",
+          "Monthly AI agent optimization",
           "Custom branding & tone",
           "QR codes for lobby, tables & marketing",
           "Monthly performance report",
@@ -150,7 +150,7 @@
     "items": [
       {
         "avatar": "🍝",
-        "quote": "\"We used to miss 20+ calls a week after hours. Now the bot handles everything — hours, menu questions, reservations. It paid for itself in the first week.\"",
+        "quote": "\"We used to miss 20+ calls a week after hours. Now the AI agent handles everything — hours, menu questions, reservations. It paid for itself in the first week.\"",
         "name": "Marco R.",
         "role": "Owner, Italian Restaurant — Irvine, CA"
       },

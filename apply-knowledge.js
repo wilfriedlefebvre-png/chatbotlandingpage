@@ -5,7 +5,12 @@
     var cur = obj;
     for (var i = 0; i < parts.length; i++) {
       if (cur == null) return null;
-      cur = cur[parts[i]];
+      var key = parts[i];
+      if (Array.isArray(cur) && /^\d+$/.test(key)) {
+        cur = cur[Number(key)];
+      } else {
+        cur = cur[key];
+      }
     }
     return cur;
   }
@@ -87,7 +92,7 @@
 
   window.profastApplyKnowledge = applyKnowledge;
 
-  fetch('./knowledge.json')
+  fetch('./knowledge.json', { cache: 'no-store' })
     .then(function (r) {
       if (!r.ok) throw new Error('knowledge.json HTTP ' + r.status);
       return r.json();

@@ -85,7 +85,7 @@
     var disclaimerFull =
       demo.disclaimerParts && demo.disclaimerParts.length
         ? demo.disclaimerParts.join('')
-        : 'The live demo below is a really basic bot — currently shown as a restaurant-style example. Your production bot is trained for your own business and industry.';
+        : 'The live demo below is a really basic AI agent — currently shown as a restaurant-style example. Your production AI agent is trained for your own business and industry.';
     var demoStr =
       'From the Live Demo section: you can try the chat in that section on this page. The on-page disclaimer reads: ' +
       disclaimerFull +
@@ -142,7 +142,7 @@
       (test.footnote || '');
 
     var help =
-      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (basic bot / restaurant-style example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want us to collect your info for a follow-up.';
+      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (basic AI agent / restaurant-style example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want us to collect your info for a follow-up.';
 
     var st = tiers[1];
     var calendlyBooking = st
@@ -189,13 +189,13 @@
     problem:
       'From "Why Businesses Need an AI Agent" section: No AI agent = lost revenue, daily. The page lists four pains: questions go unanswered 24/7; same questions, every day; bookings that never happen; lost leads every night — matching the cards on this page.',
     howItWorks:
-      'From "How It Works" — live on your site in 48 hours:\n1) You share business info: services, hours, location, FAQs, booking policy, and what the bot should qualify. A 15-minute call or a quick email.\n2) We build your custom bot — trained on your business, in your tone.\n3) One line of code on your site — works on Wix, Squarespace, WordPress, or any platform; no technical knowledge needed.\n4) It works while you sleep — clients can chat and book at 2am; you wake up to leads and bookings in inbox or calendar.',
+      'From "How It Works" — live on your site in 48 hours:\n1) You share business info: services, hours, location, FAQs, booking policy, and what the AI agent should qualify. A 15-minute call or a quick email.\n2) We build your custom AI agent — trained on your business, in your tone.\n3) One line of code on your site — works on Wix, Squarespace, WordPress, or any platform; no technical knowledge needed.\n4) It works while you sleep — clients can chat and book at 2am; you wake up to leads and bookings in inbox or calendar.',
     platforms:
       'From step 3 on this page: installation is one line of code. It works on Wix, Squarespace, WordPress, or any platform. You do not need technical knowledge on your end.',
     demo:
-      'From the Live Demo section: you can try the chat in that section on this page. The on-page disclaimer reads: The live demo below is a really basic bot — currently shown as a restaurant-style example. Your production bot is trained for your own business and industry. Use "See It Live" in the hero or scroll to #demo.',
+      'From the Live Demo section: you can try the chat in that section on this page. The on-page disclaimer reads: The live demo below is a really basic AI agent — currently shown as a restaurant-style example. Your production AI agent is trained for your own business and industry. Use "See It Live" in the hero or scroll to #demo.',
     pricingAll:
-      'From the Pricing section — same numbers as on this page:\n\nStarter — $49/mo + $149 one-time setup. Includes: FAQ bot on your services & info; hours, location & contact; embed on your site; QR for print materials; email support.\n\nStandard (Most Popular) — $99/mo + $249 setup. Everything in Starter, plus appointment & booking integration; lead capture (name, email, phone); Calendly / booking calendar sync; weekly conversation report; priority email support.\n\nPro — $199/mo + $399 setup. Everything in Standard, plus monthly chatbot optimization; custom branding & tone; QR codes for lobby, tables & marketing; monthly performance report; priority phone & email support.',
+      'From the Pricing section — same numbers as on this page:\n\nStarter — $49/mo + $149 one-time setup. Includes: AI agent trained on your services & FAQs; hours, location & contact; embed on your site; QR for print materials; email support.\n\nStandard (Most Popular) — $99/mo + $249 setup. Everything in Starter, plus appointment & booking integration; lead capture (name, email, phone); Calendly / booking calendar sync; weekly conversation report; priority email support.\n\nPro — $199/mo + $399 setup. Everything in Standard, plus monthly AI agent optimization; custom branding & tone; QR codes for lobby, tables & marketing; monthly performance report; priority phone & email support.',
     trial:
       'From the page: 30 days free, no credit card. If you do not love it, you owe nothing. CTA: we set up a custom AI agent for your business free for 30 days.',
     support:
@@ -205,7 +205,7 @@
     testimonials:
       'The testimonials block is titled "Real results for real businesses" and shows three hospitality examples (Irvine, Newport Beach, Mission Viejo). The page also notes to replace with real testimonials when you have them.',
     help:
-      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (basic bot / restaurant-style example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want us to collect your info for a follow-up.',
+      'I only answer from what is on this Pro Fast AI page. Try asking about: what we do, hero stats, the problem we solve, how it works, the live demo (basic AI agent / restaurant-style example), pricing (Starter / Standard / Pro), the 30-day trial, support by plan, or contact details. Say "start free trial" when you want us to collect your info for a follow-up.',
     calendlyBooking:
       'From the Standard plan on this page: appointment & booking integration, Calendly / booking calendar sync, and lead capture (name, email, phone). Weekly conversation report and priority email support are also listed for Standard.',
     qrCodes:
@@ -215,7 +215,7 @@
   function buildPfaiSystemPrompt(site) {
     var s = site || FALLBACK_SITE;
     var full = [
-      'You are the Pro Fast AI assistant on the Pro Fast AI marketing website.',
+      'You are the conversational AI agent for visitors on the Pro Fast AI marketing website.',
       'Answer using ONLY the knowledge block below. Do not invent prices, features, or contact details.',
       'If something is not in the knowledge, say you do not have that on this page and suggest what you can help with (offer, pricing, trial, contact).',
       'Be concise (about 2–6 sentences unless the visitor asks for more). Professional, warm tone.',
@@ -449,7 +449,7 @@
     row.appendChild(bubble);
     messagesEl.appendChild(row);
     messagesEl.scrollTop = messagesEl.scrollHeight;
-    addTranscript(role === 'bot' ? 'Assistant' : 'Visitor', text);
+    addTranscript(role === 'bot' ? 'Agent' : 'Visitor', text);
   }
 
   function validEmail(value) {
@@ -483,7 +483,7 @@
     var subject = encodeURIComponent('New Pro Fast AI Lead - ' + state.lead.business);
     var body = encodeURIComponent(
       [
-        'New lead captured from website chatbot:',
+        'New lead captured from website AI agent:',
         '',
         'Name: ' + state.lead.name,
         'Business: ' + state.lead.business,
